@@ -1,0 +1,23 @@
+# this file is generated via https://github.com/docker-library/gcc/blob/8c7687860cdd4ef9227c249ca4587984e2636a55/generate-stackbrew-library.sh
+
+Maintainers: Tianon Gravi <admwiggin@gmail.com> (@tianon),
+             Joseph Ferguson <yosifkit@gmail.com> (@yosifkit)
+GitRepo: https://github.com/docker-library/gcc.git
+
+# Last Modified: 2016-08-03
+Tags: 4.9.4, 4.9, 4
+GitCommit: 8c7687860cdd4ef9227c249ca4587984e2636a55
+Directory: 4.9
+# Docker EOL: 2017-08-03
+
+# Last Modified: 2016-06-03
+Tags: 5.4.0, 5.4, 5
+GitCommit: 8c7687860cdd4ef9227c249ca4587984e2636a55
+Directory: 5
+# Docker EOL: 2017-06-03
+
+# Last Modified: 2016-12-21
+Tags: 6.3.0, 6.3, 6, latest
+GitCommit: 758ef9b4b4978a3a06ea84422a76ed906c94c606
+Directory: 6
+# Docker EOL: 2017-12-21

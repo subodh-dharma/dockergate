@@ -1,0 +1,41 @@
+# this file is generated via https://github.com/docker-library/docker/blob/c3ce8229e967d1a243ffc8699ea1d2044647f523/generate-stackbrew-library.sh
+
+Maintainers: Tianon Gravi <tianon@dockerproject.org> (@tianon),
+             Joseph Ferguson <yosifkit@gmail.com> (@yosifkit)
+GitRepo: https://github.com/docker-library/docker.git
+
+Tags: 17.04.0-ce-rc1, 17.04.0-ce, 17.04.0, 17.04-rc, rc
+GitCommit: e9c09260bfaea5199c6c053a83fc46564aa14990
+Directory: 17.04-rc
+
+Tags: 17.04.0-ce-rc1-dind, 17.04.0-ce-dind, 17.04.0-dind, 17.04-rc-dind, rc-dind
+GitCommit: e9c09260bfaea5199c6c053a83fc46564aa14990
+Directory: 17.04-rc/dind
+
+Tags: 17.04.0-ce-rc1-git, 17.04.0-ce-git, 17.04.0-git, 17.04-rc-git, rc-git
+GitCommit: e9c09260bfaea5199c6c053a83fc46564aa14990
+Directory: 17.04-rc/git
+
+Tags: 17.03.0-ce, 17.03.0, 17.03, 17, latest
+GitCommit: bf822e2b9b4f755156b825444562c9865f22557f
+Directory: 17.03
+
+Tags: 17.03.0-ce-dind, 17.03.0-dind, 17.03-dind, 17-dind, dind
+GitCommit: bf822e2b9b4f755156b825444562c9865f22557f
+Directory: 17.03/dind
+
+Tags: 17.03.0-ce-git, 17.03.0-git, 17.03-git, 17-git, git
+GitCommit: bf822e2b9b4f755156b825444562c9865f22557f
+Directory: 17.03/git
+
+Tags: 1.13.1, 1.13
+GitCommit: 50ec917e1b7601d655daee8893567e8cfd213248
+Directory: 1.13
+
+Tags: 1.13.1-dind, 1.13-dind
+GitCommit: b202ec7e529f5426e2ad7e8c0a8b82cacd406573
+Directory: 1.13/dind
+
+Tags: 1.13.1-git, 1.13-git
+GitCommit: b202ec7e529f5426e2ad7e8c0a8b82cacd406573
+Directory: 1.13/git
