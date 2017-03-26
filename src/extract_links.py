@@ -20,7 +20,13 @@ while line:
   
 
  if 'Directory' in line:
-  print line
+  #print line
+  tag = (line.split(' ', 1)[1]).rstrip()
+  file_path = '/' + tag + '/Dockerfile'
+  file_git = gitapi.repos(repo_owner)(repo_name).contents(file_path).get()
+  download_file = urllib.URLopener()
+  download_file.retrieve(file_git.download_url, './downloads/Dockerfile_'+repo_name+'_'+tag.replace('/','_'))
+  print file_path 
  line = fo.readline()
 fo.close()
 
