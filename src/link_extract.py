@@ -7,12 +7,12 @@ from github import GitHub
 git_token = os.environ['GITTOKEN']
 gitapi = GitHub(access_token=git_token)
 
-files = os.listdir('../exceptions')
+files = os.listdir('../nvm')
 #files = os.listdir('../dockerlibrary')
 count = 0
 branch_path = ''
 for f in files:
- fo = open('../exceptions/'+f)
+ fo = open('../nvm/'+f)
  #fo = open('../dockerlibrary/'+f)
  print fo.name
  line = fo.readline()
