@@ -14,7 +14,6 @@ branch_path = ''
 for f in files:
  fo = open('../nvm/'+f)
  #fo = open('../dockerlibrary/'+f)
- print fo.name
  line = fo.readline()
   
  while line:
@@ -28,7 +27,6 @@ for f in files:
    branch_path = line.split('/',3)[2].rstrip()
    print 'BRANCH', branch_path
   if 'Directory' in line:
-   #print line   
    tag = (line.split(' ', 1)[1]).rstrip()
    print 'TAG', tag
    file_path = tag + '/Dockerfile'
@@ -39,7 +37,6 @@ for f in files:
    else:
     file_git = gitapi.repos(repo_owner)(repo_name).contents(file_path+'?ref='+branch_path).get()
    download_file = urllib.URLopener()
-   print 'RAW GIT', file_git.download_url
    download_file.retrieve(file_git.download_url, './downloads/Dockerfile_'+repo_name+'_'+tag.replace('/','_'))
    count = count + 1
    print count
