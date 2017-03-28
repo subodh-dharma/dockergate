@@ -2,10 +2,10 @@ import os
 import json
 import operator
 
-files = os.listdir('./downloads')
+files = os.listdir('./official-images')
 baseimages = {}
 for f in files:
- fo = open('./downloads/'+f)
+ fo = open('./official-images/'+f)
  line = fo.readline()
 
  while line:
