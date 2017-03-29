@@ -1,0 +1,43 @@
+\documentclass[10pt,twocolumn,pdftex]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[pdftex,colorlinks=true,citecolor=black,filecolor=black,%
+            linkcolor=black,urlcolor=black]{hyperref}
+\usepackage{times}
+%\usepackage{listings}
+%\usepackage{fancyvrb}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amssymb}
+
+%\lstset{ % for our code environment
+%    language={},
+%    basicstyle=\ttfamily}
+%\let\code\lstinline
+
+\title{Title of Paper}
+\author{Student Name \\
+\url{student.name@ncsu.edu}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+\input{intro}
+\input{overview}
+\input{design}
+\input{eval}
+\input{discussion}
+\input{relwork}
+\input{conc}
+
+\bibliographystyle{abbrv}
+\bibliography{main}
+
+\end{document}
+
+
