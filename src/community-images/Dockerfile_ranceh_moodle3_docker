@@ -1,0 +1,60 @@
+# Dockerfile for moodle instance. more dockerish version of https://github.com/sergiogomez/docker-moodle
+FROM ubuntu:14.04
+MAINTAINER Rance Hall <ranceh@gmail.com>
+
+EXPOSE 80 443
+
+
+# Keep upstart from complaining
+RUN dpkg-divert --local --rename --add /sbin/initctl
+RUN ln -sf /bin/true /sbin/initctl
+
+# Let the container know that there is no tty
+ENV DEBIAN_FRONTEND noninteractive
+
+# Database info
+#ENV MYSQL_HOST 127.0.0.1
+#ENV MYSQL_USER moodle
+#ENV MYSQL_PASSWORD moodle
+#ENV MYSQL_DB moodle
+
+# s6 overlay
+ADD https://github.com/just-containers/s6-overlay/releases/download/v1.18.1.3/s6-overlay-amd64.tar.gz /tmp/s6-overlay.tar.gz
+RUN tar xvfz /tmp/s6-overlay.tar.gz -C /
+
+RUN apt-get update && \
+	apt-get -y install mysql-client python-setuptools curl git unzip apache2 php5 \
+		php5-gd libapache2-mod-php5 wget supervisor php5-pgsql curl libcurl3 \
+		libcurl3-dev php5-curl php5-xmlrpc php5-intl php5-mysql php5-ldap \
+		cron rsync wget logrotate rsyslog rsyslog-relp logrotate gettext-base && \
+	cd /tmp && \
+	git clone -b MOODLE_31_STABLE git://git.moodle.org/moodle.git --depth=1 && \
+	mv /tmp/moodle/* /var/www/html/ && \
+	rm /var/www/html/index.html && \
+	chown -R www-data:www-data /var/www/html
+
+RUN echo "*/5 * * * * root /usr/bin/php5 /var/www/html/admin/cli/cron.php >> /var/log/cron.log 2>&1" > /etc/cron.d/moodle_cron
+
+COPY moodle-config.php /var/www/html/config.php
+
+# Enable SSL, moodle requires it
+
+RUN a2enmod ssl && a2ensite default-ssl # if using proxy, don't need actually secure connection
+
+RUN mkdir /etc/services.d/apache2 && mkdir /etc/services.d/cron && mkdir /etc/services.d/apache2/log && mkdir /etc/services.d/cron/log
+
+COPY ./startapache.sh /etc/services.d/apache2/run
+
+COPY ./stopapache.sh /etc/services.d/apache2/finish
+
+COPY ./startcron.sh /etc/services.d/cron/run
+
+COPY ./stopcron.sh /etc/services.d/cron/finish
+
+COPY ./startapachelog.sh /etc/services.d/apache2/log/run
+
+COPY ./startcronlog.sh /etc/services.d/cron/log/run
+
+RUN chmod +x /etc/services.d/apache2/run && chmod +x /etc/services.d/apache2/finish && chmod +x /etc/services.d/cron/run && chmod +x /etc/services.d/cron/finish && chmod +x /etc/services.d/apache2/log/run && chmod +x /etc/services.d/cron/log/run
+
+ENTRYPOINT [ "/init" ]
