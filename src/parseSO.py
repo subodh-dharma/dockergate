@@ -1,5 +1,5 @@
 import re
-
+import json
 
 class funcsyscall:
  'System calls of library functions'
@@ -10,7 +10,9 @@ class funcsyscall:
   self.callq = set() 
   self.exceptions = list() 
  def __str__(self):
-  return "Library Function: "+self.name+"\n\tSyscalls: "+ str(list(self.syscalls)) + "\n\tCallQs: " + str(list(self.callq))
+  return "{ function: '"+self.name+"' , syscalls: "+ str(list(self.syscalls)) + ", callqs: " + str(list(self.callq)) + "}"
+ def __repr__(self):
+   return self.__str__()
 
 # List of jump instructions
 jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jxcz', 'jc', 'jnc', 'jo', 'jno', 'jp','jpe', 'jnp', 'jpo', 'jns', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge', 'jle', 'jng']
@@ -68,8 +70,22 @@ while line:
     break
  line = fo.readline()
 
+
+json_array = {}
+json_array["functions"] = []
+
 for f in func_list:
- print f
+ json_array["functions"].append(f)
+
+jsonfile = open('libc.json', 'w+')
+jsonfile.write(str(json_array))
+jsonfile.close()
+
+#print json_array
+
+jsonread = open('libc.json','r')
+print json.dumps(jsonread.readlines(), indent=4, separators=(',', ':'))
+
 
 for e in except_list:
  print e
