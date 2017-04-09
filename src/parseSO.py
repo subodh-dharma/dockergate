@@ -20,15 +20,15 @@ class funcsyscall:
 jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jxcz', 'jc', 'jnc', 'jo', 'jno', 'jp','jpe', 'jnp', 'jpo', 'jns', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge', 'jle', 'jng']
 
 func_list = []
-except_list = []
+except_list = ''
 
-if len(sys.argv) != 3:
+if len(sys.argv) != 4:
  print "Usage: python parseSO.py <shared-obj> <json-file>"
  sys.exit()
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
-
+exception_file = sys.argv[3]
 
 fo = open(input_file)
 line = fo.readline()
@@ -67,7 +67,7 @@ while line:
        #func_list.append(tempfunc)
       except:
        #print 'EXC', prev_line
-       except_list.append('EXC\t'+func_name+'\n'+prev_line+line)
+       except_list = except_list + '\nEXC    '+func_name+' '+prev_line+'       '+line
       func_list.append(tempfunc)
      else:
       continue
@@ -98,5 +98,5 @@ jsonfile.close()
  #data = json.load(jsonread)
  #pprint.pprint(data)
 
-for e in except_list:
- print e
+exceptfile = open(exception_file,'w+')
+exceptfile.write(except_list)
