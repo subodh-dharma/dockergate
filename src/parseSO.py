@@ -1,6 +1,7 @@
 import re
 import json
 import pprint
+import sys
 
 class funcsyscall:
  'System calls of library functions'
@@ -21,7 +22,15 @@ jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae'
 func_list = []
 except_list = []
 
-fo = open('./data/chdir.log')
+if len(sys.argv) != 3:
+ print "Usage: python parseSO.py <shared-obj> <json-file>"
+ sys.exit()
+
+input_file = sys.argv[1]
+output_file = sys.argv[2]
+
+
+fo = open(input_file)
 line = fo.readline()
 
 while line:
@@ -58,7 +67,7 @@ while line:
        #func_list.append(tempfunc)
       except:
        #print 'EXC', prev_line
-       except_list.append('EXC\n'+prev_line+line)
+       except_list.append('EXC\t'+func_name+'\n'+prev_line+line)
       func_list.append(tempfunc)
      else:
       continue
@@ -72,26 +81,22 @@ while line:
  line = fo.readline()
 
 
+# Creating JSON Object
 json_array = {"functions":[]}
-
-
 for f in func_list:
  json_array["functions"].append(f)
 
-jsonfile = open('libc.json', 'w+')
+# Writing JSON to file
+jsonfile = open(output_file, 'w+')
 json_str = str(json_array)
 json_str = json_str.replace("'",'"')
 jsonfile.write(json_str)
 jsonfile.close()
 
 #print json_array
-with open('libc.json') as jsonread:
- data = json.load(jsonread)
- pprint.pprint(data)
-
-
-#print json.dumps(jsonread.readlines()[0], indent=4, separators=(',', ':'))
-
+#with open('libc.json') as jsonread:
+ #data = json.load(jsonread)
+ #pprint.pprint(data)
 
 for e in except_list:
  print e
