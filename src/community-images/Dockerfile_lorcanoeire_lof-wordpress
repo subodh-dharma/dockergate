@@ -1,0 +1,11 @@
+FROM wordpress:latest
+MAINTAINER Lorcan O'Flynn <lorcan.oflynn@gmail.com>
+
+RUN pecl install zip
+
+ADD config/entrypointcustomised /usr/local/bin/
+RUN chmod 755 /usr/local/bin/entrypointcustomised
+
+ADD config/ext-zip.ini /usr/local/etc/php/conf.d/
+
+ENTRYPOINT ["entrypointcustomised", "apache2-foreground"]

@@ -2,14 +2,17 @@ import os
 import json
 import operator
 
-files = os.listdir('./official-images')
+files = os.listdir('./downloads1')
 baseimages = {}
 for f in files:
- fo = open('./official-images/'+f)
+ fo = open('./downloads1/'+f)
  line = fo.readline()
 
  while line:
   if 'FROM' in line:
+   print line
+   if len(line.split(' ')) != 2:
+    break
    image_name = line.split(' ', 1)[1].rstrip().lstrip()
    # general image names
    image_name = image_name.split(':',1)[0]

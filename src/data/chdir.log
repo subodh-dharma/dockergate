@@ -1,0 +1,251 @@
+00000000000f6eb0 <chdir@@GLIBC_2.2.5>:
+   f6eb0:	b8 50 00 00 00       	mov    $0x50,%eax
+   f6eb5:	0f 05                	syscall 
+   f6eb7:	48 3d 01 f0 ff ff    	cmp    $0xfffffffffffff001,%rax
+   f6ebd:	73 01                	jae    f6ec0 <chdir@@GLIBC_2.2.5+0x10>
+   f6ebf:	c3                   	retq   
+   f6ec0:	48 8b 0d b1 bf 2c 00 	mov    0x2cbfb1(%rip),%rcx        # 3c2e78 <_IO_file_jumps@@GLIBC_2.2.5+0x798>
+   f6ec7:	f7 d8                	neg    %eax
+   f6ec9:	64 89 01             	mov    %eax,%fs:(%rcx)
+   f6ecc:	48 83 c8 ff          	or     $0xffffffffffffffff,%rax
+   f6ed0:	c3                   	retq   
+   f6ed1:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+   f6ed8:	00 00 00 
+   f6edd:	00 00 00		callq  abc@@GLIBC_2.2.5
+   f6edb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   f6ed1:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+   f6ed8:	00 00 00 
+   f6edd:	00 00 00		callq  abc@@GLIBC_2.2.5
+   f6edb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+00000000000f6ee0 <fchdir@@GLIBC_2.2.5>:
+   f6ee0:       b8 51 00 00 00          mov    $0x51,%eax
+   f6ee5:       0f 05                   syscall
+   f6ee7:       48 3d 01 f0 ff ff       cmp    $0xfffffffffffff001,%rax
+   f6eed:       73 01                   jae    f6ef0 <fchdir@@GLIBC_2.2.5+0x10>
+   f6eef:       c3                      retq
+   f6ef0:       48 8b 0d 81 bf 2c 00    mov    0x2cbf81(%rip),%rcx        # 3c2e78 <_IO_file_jumps@@GLIBC_2.2.5+0x798>
+   f6ef7:       f7 d8                   neg    %eax
+   f6ef9:       64 89 01                mov    %eax,%fs:(%rcx)
+   f6efc:       48 83 c8 ff             or     $0xffffffffffffffff,%rax
+   f6f00:       c3                      retq
+   f6f01:       66 2e 0f 1f 84 00 00    nopw   %cs:0x0(%rax,%rax,1)
+   f6f08:       00 00 00
+   f6f0b:       0f 1f 44 00 00          nopl   0x0(%rax,%rax,1)
+
+000000000006f2a0 <_IO_proc_open@@GLIBC_2.2.5>:
+   6f2a0:	41 57                	push   %r15
+   6f2a2:	41 56                	push   %r14
+   6f2a4:	31 c0                	xor    %eax,%eax
+   6f2a6:	41 55                	push   %r13
+   6f2a8:	41 54                	push   %r12
+   6f2aa:	45 31 ed             	xor    %r13d,%r13d
+   6f2ad:	55                   	push   %rbp
+   6f2ae:	53                   	push   %rbx
+   6f2af:	49 89 f4             	mov    %rsi,%r12
+   6f2b2:	48 89 fb             	mov    %rdi,%rbx
+   6f2b5:	31 ed                	xor    %ebp,%ebp
+   6f2b7:	48 83 ec 48          	sub    $0x48,%rsp
+   6f2bb:	0f b6 0a             	movzbl (%rdx),%ecx
+   6f2be:	84 c9                	test   %cl,%cl
+   6f2c0:	74 4a                	je     6f30c <_IO_proc_open@@GLIBC_2.2.5+0x6c>
+   6f2c2:	48 83 c2 01          	add    $0x1,%rdx
+   6f2c6:	80 f9 72             	cmp    $0x72,%cl
+   6f2c9:	74 35                	je     6f300 <_IO_proc_open@@GLIBC_2.2.5+0x60>
+   6f2cb:	80 f9 77             	cmp    $0x77,%cl
+   6f2ce:	0f 84 cc 01 00 00    	je     6f4a0 <_IO_proc_open@@GLIBC_2.2.5+0x200>
+   6f2d4:	80 f9 65             	cmp    $0x65,%cl
+   6f2d7:	0f 84 b3 01 00 00    	je     6f490 <_IO_proc_open@@GLIBC_2.2.5+0x1f0>
+   6f2dd:	48 8b 05 94 3b 35 00 	mov    0x353b94(%rip),%rax        # 3c2e78 <_IO_file_jumps@@GLIBC_2.2.5+0x798>
+   6f2e4:	64 c7 00 16 00 00 00 	movl   $0x16,%fs:(%rax)
+   6f2eb:	31 c0                	xor    %eax,%eax
+   6f2ed:	48 83 c4 48          	add    $0x48,%rsp
+   6f2f1:	5b                   	pop    %rbx
+   6f2f2:	5d                   	pop    %rbp
+   6f2f3:	41 5c                	pop    %r12
+   6f2f5:	41 5d                	pop    %r13
+   6f2f7:	41 5e                	pop    %r14
+   6f2f9:	41 5f                	pop    %r15
+   6f2fb:	c3                   	retq   
+   6f2fc:	0f 1f 40 00          	nopl   0x0(%rax)
+   6f300:	0f b6 0a             	movzbl (%rdx),%ecx
+   6f303:	bd 01 00 00 00       	mov    $0x1,%ebp
+   6f308:	84 c9                	test   %cl,%cl
+   6f30a:	75 b6                	jne    6f2c2 <_IO_proc_open@@GLIBC_2.2.5+0x22>
+   6f30c:	39 c5                	cmp    %eax,%ebp
+   6f30e:	74 cd                	je     6f2dd <_IO_proc_open@@GLIBC_2.2.5+0x3d>
+   6f310:	83 7b 70 ff          	cmpl   $0xffffffff,0x70(%rbx)
+   6f314:	0f 85 b6 01 00 00    	jne    6f4d0 <_IO_proc_open@@GLIBC_2.2.5+0x230>
+   6f31a:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+   6f31f:	be 00 00 08 00       	mov    $0x80000,%esi
+   6f324:	e8 f7 7a 08 00       	callq  f6e20 <pipe2@@GLIBC_2.9>
+   6f329:	85 c0                	test   %eax,%eax
+   6f32b:	0f 88 9f 01 00 00    	js     6f4d0 <_IO_proc_open@@GLIBC_2.2.5+0x230>
+   6f331:	85 ed                	test   %ebp,%ebp
+   6f333:	0f 85 a7 01 00 00    	jne    6f4e0 <_IO_proc_open@@GLIBC_2.2.5+0x240>
+   6f339:	44 8b 7c 24 14       	mov    0x14(%rsp),%r15d
+   6f33e:	44 8b 74 24 10       	mov    0x10(%rsp),%r14d
+   6f343:	c7 44 24 0c 04 00 00 	movl   $0x4,0xc(%rsp)
+   6f34a:	00 
+   6f34b:	e8 40 c4 05 00       	callq  cb790 <__fork@@GLIBC_2.2.5>
+   6f350:	85 c0                	test   %eax,%eax
+   6f352:	89 c2                	mov    %eax,%edx
+   6f354:	89 83 e0 00 00 00    	mov    %eax,0xe0(%rbx)
+   6f35a:	0f 84 09 02 00 00    	je     6f569 <_IO_proc_open@@GLIBC_2.2.5+0x2c9>
+   6f360:	49 63 fe             	movslq %r14d,%rdi
+   6f363:	b8 03 00 00 00       	mov    $0x3,%eax
+   6f368:	0f 05                	syscall 
+   6f36a:	48 3d 00 f0 ff ff    	cmp    $0xfffffffffffff000,%rax
+   6f370:	0f 87 e2 01 00 00    	ja     6f558 <_IO_proc_open@@GLIBC_2.2.5+0x2b8>
+   6f376:	85 d2                	test   %edx,%edx
+   6f378:	0f 88 2c 01 00 00    	js     6f4aa <_IO_proc_open@@GLIBC_2.2.5+0x20a>
+   6f37e:	45 85 ed             	test   %r13d,%r13d
+   6f381:	0f 84 99 01 00 00    	je     6f520 <_IO_proc_open@@GLIBC_2.2.5+0x280>
+   6f387:	8b 2d a3 93 35 00    	mov    0x3593a3(%rip),%ebp        # 3c8730 <argp_program_version_hook@@GLIBC_2.2.5+0x1d0>
+   6f38d:	44 89 7b 70          	mov    %r15d,0x70(%rbx)
+   6f391:	85 ed                	test   %ebp,%ebp
+   6f393:	0f 85 5e 01 00 00    	jne    6f4f7 <_IO_proc_open@@GLIBC_2.2.5+0x257>
+   6f399:	48 8d 05 b0 fe ff ff 	lea    -0x150(%rip),%rax        # 6f250 <_IO_proc_close@@GLIBC_2.2.5+0x240>
+   6f3a0:	48 c7 44 24 28 00 00 	movq   $0x0,0x28(%rsp)
+   6f3a7:	00 00 
+   6f3a9:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   6f3ae:	64 48 8b 14 25 10 00 	mov    %fs:0x10,%rdx
+   6f3b5:	00 00 
+   6f3b7:	48 3b 15 6a 63 35 00 	cmp    0x35636a(%rip),%rdx        # 3c5728 <__abort_msg@@GLIBC_PRIVATE+0xb48>
+   6f3be:	74 46                	je     6f406 <_IO_proc_open@@GLIBC_2.2.5+0x166>
+   6f3c0:	be 01 00 00 00       	mov    $0x1,%esi
+   6f3c5:	31 c0                	xor    %eax,%eax
+   6f3c7:	83 3d 72 93 35 00 00 	cmpl   $0x0,0x359372(%rip)        # 3c8740 <argp_program_version_hook@@GLIBC_2.2.5+0x1e0>
+   6f3ce:	74 0c                	je     6f3dc <_IO_proc_open@@GLIBC_2.2.5+0x13c>
+   6f3d0:	f0 0f b1 35 48 63 35 	lock cmpxchg %esi,0x356348(%rip)        # 3c5720 <__abort_msg@@GLIBC_PRIVATE+0xb40>
+   6f3d7:	00 
+   6f3d8:	75 0b                	jne    6f3e5 <_IO_proc_open@@GLIBC_2.2.5+0x145>
+   6f3da:	eb 23                	jmp    6f3ff <_IO_proc_open@@GLIBC_2.2.5+0x15f>
+   6f3dc:	0f b1 35 3d 63 35 00 	cmpxchg %esi,0x35633d(%rip)        # 3c5720 <__abort_msg@@GLIBC_PRIVATE+0xb40>
+   6f3e3:	74 1a                	je     6f3ff <_IO_proc_open@@GLIBC_2.2.5+0x15f>
+   6f3e5:	48 8d 3d 34 63 35 00 	lea    0x356334(%rip),%rdi        # 3c5720 <__abort_msg@@GLIBC_PRIVATE+0xb40>
+   6f3ec:	48 81 ec 80 00 00 00 	sub    $0x80,%rsp
+   6f3f3:	e8 98 50 0a 00       	callq  114490 <pthread_setcanceltype@@GLIBC_2.2.5+0x30>
+   6f3f8:	48 81 c4 80 00 00 00 	add    $0x80,%rsp
+   6f3ff:	48 89 15 22 63 35 00 	mov    %rdx,0x356322(%rip)        # 3c5728 <__abort_msg@@GLIBC_PRIVATE+0xb48>
+   6f406:	48 8b 05 23 63 35 00 	mov    0x356323(%rip),%rax        # 3c5730 <__abort_msg@@GLIBC_PRIVATE+0xb50>
+   6f40d:	48 89 1d 1c 63 35 00 	mov    %rbx,0x35631c(%rip)        # 3c5730 <__abort_msg@@GLIBC_PRIVATE+0xb50>
+   6f414:	48 89 83 e8 00 00 00 	mov    %rax,0xe8(%rbx)
+   6f41b:	8b 05 03 63 35 00    	mov    0x356303(%rip),%eax        # 3c5724 <__abort_msg@@GLIBC_PRIVATE+0xb44>
+   6f421:	85 c0                	test   %eax,%eax
+   6f423:	75 41                	jne    6f466 <_IO_proc_open@@GLIBC_2.2.5+0x1c6>
+   6f425:	48 c7 05 f8 62 35 00 	movq   $0x0,0x3562f8(%rip)        # 3c5728 <__abort_msg@@GLIBC_PRIVATE+0xb48>
+   6f42c:	00 00 00 00 
+   6f430:	83 3d 09 93 35 00 00 	cmpl   $0x0,0x359309(%rip)        # 3c8740 <argp_program_version_hook@@GLIBC_2.2.5+0x1e0>
+   6f437:	74 0b                	je     6f444 <_IO_proc_open@@GLIBC_2.2.5+0x1a4>
+   6f439:	f0 ff 0d e0 62 35 00 	lock decl 0x3562e0(%rip)        # 3c5720 <__abort_msg@@GLIBC_PRIVATE+0xb40>
+   6f440:	75 0a                	jne    6f44c <_IO_proc_open@@GLIBC_2.2.5+0x1ac>
+   6f442:	eb 22                	jmp    6f466 <_IO_proc_open@@GLIBC_2.2.5+0x1c6>
+   6f444:	ff 0d d6 62 35 00    	decl   0x3562d6(%rip)        # 3c5720 <__abort_msg@@GLIBC_PRIVATE+0xb40>
+   6f44a:	74 1a                	je     6f466 <_IO_proc_open@@GLIBC_2.2.5+0x1c6>
+   6f44c:	48 8d 3d cd 62 35 00 	lea    0x3562cd(%rip),%rdi        # 3c5720 <__abort_msg@@GLIBC_PRIVATE+0xb40>
+   6f453:	48 81 ec 80 00 00 00 	sub    $0x80,%rsp
+   6f45a:	e8 61 50 0a 00       	callq  1144c0 <pthread_setcanceltype@@GLIBC_2.2.5+0x60>
+   6f45f:	48 81 c4 80 00 00 00 	add    $0x80,%rsp
+   6f466:	85 ed                	test   %ebp,%ebp
+   6f468:	0f 85 c8 00 00 00    	jne    6f536 <_IO_proc_open@@GLIBC_2.2.5+0x296>
+   6f46e:	8b 03                	mov    (%rbx),%eax
+   6f470:	44 8b 6c 24 0c       	mov    0xc(%rsp),%r13d
+   6f475:	83 e0 f3             	and    $0xfffffff3,%eax
+   6f478:	41 09 c5             	or     %eax,%r13d
+   6f47b:	48 89 d8             	mov    %rbx,%rax
+   6f47e:	44 89 2b             	mov    %r13d,(%rbx)
+   6f481:	e9 67 fe ff ff       	jmpq   6f2ed <_IO_proc_open@@GLIBC_2.2.5+0x4d>
+   6f486:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+   6f48d:	00 00 00 
+   6f490:	41 bd 01 00 00 00    	mov    $0x1,%r13d
+   6f496:	e9 20 fe ff ff       	jmpq   6f2bb <_IO_proc_open@@GLIBC_2.2.5+0x1b>
+   6f49b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   6f4a0:	b8 01 00 00 00       	mov    $0x1,%eax
+   6f4a5:	e9 11 fe ff ff       	jmpq   6f2bb <_IO_proc_open@@GLIBC_2.2.5+0x1b>
+   6f4aa:	49 63 ff             	movslq %r15d,%rdi
+   6f4ad:	b8 03 00 00 00       	mov    $0x3,%eax
+   6f4b2:	0f 05                	syscall 
+   6f4b4:	48 3d 00 f0 ff ff    	cmp    $0xfffffffffffff000,%rax
+   6f4ba:	76 14                	jbe    6f4d0 <_IO_proc_open@@GLIBC_2.2.5+0x230>
+   6f4bc:	48 8b 15 b5 39 35 00 	mov    0x3539b5(%rip),%rdx        # 3c2e78 <_IO_file_jumps@@GLIBC_2.2.5+0x798>
+   6f4c3:	f7 d8                	neg    %eax
+   6f4c5:	64 89 02             	mov    %eax,%fs:(%rdx)
+   6f4c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   6f4cf:	00 
+   6f4d0:	31 c0                	xor    %eax,%eax
+   6f4d2:	e9 16 fe ff ff       	jmpq   6f2ed <_IO_proc_open@@GLIBC_2.2.5+0x4d>
+   6f4d7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   6f4de:	00 00 
+   6f4e0:	44 8b 7c 24 10       	mov    0x10(%rsp),%r15d
+   6f4e5:	44 8b 74 24 14       	mov    0x14(%rsp),%r14d
+   6f4ea:	c7 44 24 0c 08 00 00 	movl   $0x8,0xc(%rsp)
+   6f4f1:	00 
+   6f4f2:	e9 54 fe ff ff       	jmpq   6f34b <_IO_proc_open@@GLIBC_2.2.5+0xab>
+   6f4f7:	48 8b 05 f2 91 35 00 	mov    0x3591f2(%rip),%rax        # 3c86f0 <argp_program_version_hook@@GLIBC_2.2.5+0x190>
+   6f4fe:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+   6f503:	31 d2                	xor    %edx,%edx
+   6f505:	48 c1 c8 11          	ror    $0x11,%rax
+   6f509:	64 48 33 04 25 30 00 	xor    %fs:0x30,%rax
+   6f510:	00 00 
+   6f512:	48 8d 35 37 fd ff ff 	lea    -0x2c9(%rip),%rsi        # 6f250 <_IO_proc_close@@GLIBC_2.2.5+0x240>
+   6f519:	ff d0                	callq  *%rax
+   6f51b:	e9 8e fe ff ff       	jmpq   6f3ae <_IO_proc_open@@GLIBC_2.2.5+0x10e>
+   6f520:	31 d2                	xor    %edx,%edx
+   6f522:	be 02 00 00 00       	mov    $0x2,%esi
+   6f527:	44 89 ff             	mov    %r15d,%edi
+   6f52a:	31 c0                	xor    %eax,%eax
+   6f52c:	e8 8f 75 08 00       	callq  f6ac0 <__fcntl@@GLIBC_2.2.5>
+   6f531:	e9 51 fe ff ff       	jmpq   6f387 <_IO_proc_open@@GLIBC_2.2.5+0xe7>
+   6f536:	48 8b 05 bb 91 35 00 	mov    0x3591bb(%rip),%rax        # 3c86f8 <argp_program_version_hook@@GLIBC_2.2.5+0x198>
+   6f53d:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+   6f542:	31 f6                	xor    %esi,%esi
+   6f544:	48 c1 c8 11          	ror    $0x11,%rax
+   6f548:	64 48 33 04 25 30 00 	xor    %fs:0x30,%rax
+   6f54f:	00 00 
+   6f551:	ff d0                	callq  *%rax
+   6f553:	e9 16 ff ff ff       	jmpq   6f46e <_IO_proc_open@@GLIBC_2.2.5+0x1ce>
+   6f558:	48 8b 0d 19 39 35 00 	mov    0x353919(%rip),%rcx        # 3c2e78 <_IO_file_jumps@@GLIBC_2.2.5+0x798>
+   6f55f:	f7 d8                	neg    %eax
+   6f561:	64 89 01             	mov    %eax,%fs:(%rcx)
+   6f564:	e9 0d fe ff ff       	jmpq   6f376 <_IO_proc_open@@GLIBC_2.2.5+0xd6>
+   6f569:	41 39 ee             	cmp    %ebp,%r14d
+   6f56c:	74 64                	je     6f5d2 <_IO_proc_open@@GLIBC_2.2.5+0x332>
+   6f56e:	89 ee                	mov    %ebp,%esi
+   6f570:	44 89 f7             	mov    %r14d,%edi
+   6f573:	e8 18 78 08 00       	callq  f6d90 <__dup2@@GLIBC_2.2.5>
+   6f578:	48 8b 15 b1 61 35 00 	mov    0x3561b1(%rip),%rdx        # 3c5730 <__abort_msg@@GLIBC_PRIVATE+0xb50>
+   6f57f:	be 03 00 00 00       	mov    $0x3,%esi
+   6f584:	eb 1b                	jmp    6f5a1 <_IO_proc_open@@GLIBC_2.2.5+0x301>
+   6f586:	48 63 7a 70          	movslq 0x70(%rdx),%rdi
+   6f58a:	39 fd                	cmp    %edi,%ebp
+   6f58c:	74 0c                	je     6f59a <_IO_proc_open@@GLIBC_2.2.5+0x2fa>
+   6f58e:	89 f0                	mov    %esi,%eax
+   6f590:	0f 05                	syscall 
+   6f592:	48 3d 00 f0 ff ff    	cmp    $0xfffffffffffff000,%rax
+   6f598:	77 4a                	ja     6f5e4 <_IO_proc_open@@GLIBC_2.2.5+0x344>
+   6f59a:	48 8b 92 e8 00 00 00 	mov    0xe8(%rdx),%rdx
+   6f5a1:	48 85 d2             	test   %rdx,%rdx
+   6f5a4:	75 e0                	jne    6f586 <_IO_proc_open@@GLIBC_2.2.5+0x2e6>
+   6f5a6:	48 8d 3d ca cb 11 00 	lea    0x11cbca(%rip),%rdi        # 18c177 <_libc_intl_domainname@@GLIBC_2.2.5+0x197>
+   6f5ad:	48 8d 15 c0 cb 11 00 	lea    0x11cbc0(%rip),%rdx        # 18c174 <_libc_intl_domainname@@GLIBC_2.2.5+0x194>
+   6f5b4:	48 8d 35 c1 cb 11 00 	lea    0x11cbc1(%rip),%rsi        # 18c17c <_libc_intl_domainname@@GLIBC_2.2.5+0x19c>
+   6f5bb:	45 31 c0             	xor    %r8d,%r8d
+   6f5be:	4c 89 e1             	mov    %r12,%rcx
+   6f5c1:	31 c0                	xor    %eax,%eax
+   6f5c3:	e8 a8 c8 05 00       	callq  cbe70 <execl@@GLIBC_2.2.5>
+   6f5c8:	bf 7f 00 00 00       	mov    $0x7f,%edi
+   6f5cd:	e8 8e c5 05 00       	callq  cbb60 <_exit@@GLIBC_2.2.5>
+   6f5d2:	31 d2                	xor    %edx,%edx
+   6f5d4:	be 02 00 00 00       	mov    $0x2,%esi
+   6f5d9:	89 ef                	mov    %ebp,%edi
+   6f5db:	31 c0                	xor    %eax,%eax
+   6f5dd:	e8 de 74 08 00       	callq  f6ac0 <__fcntl@@GLIBC_2.2.5>
+   6f5e2:	eb 94                	jmp    6f578 <_IO_proc_open@@GLIBC_2.2.5+0x2d8>
+   6f5e4:	48 8b 0d 8d 38 35 00 	mov    0x35388d(%rip),%rcx        # 3c2e78 <_IO_file_jumps@@GLIBC_2.2.5+0x798>
+   6f5eb:	f7 d8                	neg    %eax
+   6f5ed:	64 89 01             	mov    %eax,%fs:(%rcx)
+   6f5f0:	eb a8                	jmp    6f59a <_IO_proc_open@@GLIBC_2.2.5+0x2fa>
+   6f5f2:	0f 1f 40 00          	nopl   0x0(%rax)
+   6f5f6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+   6f5fd:	00 00 00 
