@@ -72,9 +72,13 @@ while line:
      else:
       continue
    elif any( jump in line for jump in jump_instr):
-    jump_call = line.split(' ')
-    j = jump_call[len(jump_call) - 1].rstrip().lstrip()
-    tempfunc.callq.add(j) 
+    try:
+     jump_call = line.split(' ')
+     jump_func = jump_call[len(jump_call) - 1].rstrip().lstrip()
+     _jump = (jump_func.split('<')[1]).split('@@')[0]
+     tempfunc.callq.add(_jump) 
+    except:
+     print 'Unexpected parameter in Callq'
    line = fo.readline()
    if not line.strip():
     break
