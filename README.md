@@ -7,6 +7,6 @@ Official Images Dockerfiles : [link](./data/official-images)
 
 Community Images Dockerfiles : [link](./data/community-images)
 
-Banyanops setup : [link](./tools/banayansetup)
+Banyanops setup : [link](./tools/banyansetup)
 
 Community Image Scraper : [link](./tools/dockerscraper)

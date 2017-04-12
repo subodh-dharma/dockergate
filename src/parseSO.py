@@ -19,7 +19,7 @@ class funcsyscall:
 # List of jump instructions
 jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jxcz', 'jc', 'jnc', 'jo', 'jno', 'jp','jpe', 'jnp', 'jpo', 'jns', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge', 'jle', 'jng']
 
-func_list = []
+func_list = {}
 except_list = ''
 
 if len(sys.argv) != 4:
@@ -68,7 +68,8 @@ while line:
       except:
        #print 'EXC', prev_line
        except_list = except_list + '\nEXC    '+func_name+' '+prev_line+'       '+line
-      func_list.append(tempfunc)
+      #func_list.append(tempfunc)
+      func_list[tempfunc.name] = tempfunc
      else:
       continue
    elif any( jump in line for jump in jump_instr):
@@ -86,16 +87,9 @@ while line:
  line = fo.readline()
 
 
-# Creating JSON Object
-json_array = {"functions":[]}
-for f in func_list:
- json_array["functions"].append(f)
-
 # Writing JSON to file
 jsonfile = open(output_file, 'w+')
-json_str = str(json_array)
-json_str = json_str.replace("'",'"')
-jsonfile.write(json_str)
+jsonfile.write(str(func_list))
 jsonfile.close()
 
 #print json_array
