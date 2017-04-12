@@ -1,0 +1,72 @@
+
+EXC    __libc_start_main    208a2:	89 d0                	mov    %edx,%eax
+          208a4:	0f 05                	syscall 
+
+EXC    __gconv_get_cache    29cd9:	89 c8                	mov    %ecx,%eax
+          29cdb:	0f 05                	syscall 
+
+EXC    setlocale    2c1f0:	44 89 f8             	mov    %r15d,%eax
+          2c1f3:	0f 05                	syscall 
+
+EXC    ngettext    30a0b:	89 c8                	mov    %ecx,%eax
+          30a0d:	0f 05                	syscall 
+
+EXC    __open_catalog    3466e:	44 89 c0             	mov    %r8d,%eax
+          34671:	0f 05                	syscall 
+
+EXC    killpg    355aa:	89 c8                	mov    %ecx,%eax
+          355ac:	0f 05                	syscall 
+
+EXC    sigtimedwait    369c8:	89 c8                	mov    %ecx,%eax
+          369ca:	0f 05                	syscall 
+
+EXC    sigwaitinfo    36b22:	89 c8                	mov    %ecx,%eax
+          36b24:	0f 05                	syscall 
+
+EXC    _IO_proc_open    6f58e:	89 f0                	mov    %esi,%eax
+          6f590:	0f 05                	syscall 
+
+EXC    __fork    cb9fd:	44 89 e0             	mov    %r12d,%eax
+          cba00:	0f 05                	syscall 
+
+EXC    sched_setaffinity    e9d78:	89 c8                	mov    %ecx,%eax
+          e9d7a:	0f 05                	syscall 
+
+EXC    rmdir    f843c:	89 c8                	mov    %ecx,%eax
+          f843e:	0f 05                	syscall 
+
+EXC    tcsetattr    fb95c:	89 d8                	mov    %ebx,%eax
+          fb95e:	0f 05                	syscall 
+
+EXC    daemon   10096a:	89 c8                	mov    %ecx,%eax
+         10096c:	0f 05                	syscall 
+
+EXC    ustat   104bd3:	44 89 e0             	mov    %r12d,%eax
+         104bd6:	0f 05                	syscall 
+
+EXC    ustat   104c61:	44 89 e0             	mov    %r12d,%eax
+         104c64:	0f 05                	syscall 
+
+EXC    get_nprocs   104eb2:	89 d8                	mov    %ebx,%eax
+         104eb4:	0f 05                	syscall 
+
+EXC    get_nprocs   104ee3:	89 d8                	mov    %ebx,%eax
+         104ee5:	0f 05                	syscall 
+
+EXC    shmctl   1085d7:	44 89 d0             	mov    %r10d,%eax
+         1085da:	0f 05                	syscall 
+
+EXC    shmctl   1085f6:	44 89 d0             	mov    %r10d,%eax
+         1085f9:	0f 05                	syscall 
+
+EXC    __register_atfork   11490e:	44 89 c8             	mov    %r9d,%eax
+         114911:	0f 05                	syscall 
+
+EXC    __res_iclose   126b0a:	44 89 f0             	mov    %r14d,%eax
+         126b0d:	0f 05                	syscall 
+
+EXC    getutline_r   140ca3:	44 89 f8             	mov    %r15d,%eax
+         140ca6:	0f 05                	syscall 
+
+EXC    getutline_r   14147d:	89 c8                	mov    %ecx,%eax
+         14147f:	0f 05                	syscall 
