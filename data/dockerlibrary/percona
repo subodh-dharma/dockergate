@@ -1,0 +1,17 @@
+# this file is generated via https://github.com/docker-library/percona/blob/11b6067c39e69db2c71f6c43edb902690dc5a132/generate-stackbrew-library.sh
+
+Maintainers: Tianon Gravi <admwiggin@gmail.com> (@tianon),
+             Joseph Ferguson <yosifkit@gmail.com> (@yosifkit)
+GitRepo: https://github.com/docker-library/percona.git
+
+Tags: 5.7.17, 5.7, 5, latest
+GitCommit: 2ae90072239e8fd56bb9dbff13b3f3a2b0f82b83
+Directory: 5.7
+
+Tags: 5.6.35, 5.6
+GitCommit: ab9ff984082a30195b16bb4d5f635ba1b248fecb
+Directory: 5.6
+
+Tags: 5.5.54, 5.5
+GitCommit: e75f7e598d0b12bfa7cee85496f5311f00ecc46f
+Directory: 5.5

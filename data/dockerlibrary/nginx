@@ -1,0 +1,20 @@
+# this file is generated via https://github.com/nginxinc/docker-nginx/blob/933bd40ea71c32072826194272bb77bd35e9a04c/generate-stackbrew-library.sh
+
+Maintainers: NGINX Docker Maintainers <docker-maint@nginx.com> (@nginxinc)
+GitRepo: https://github.com/nginxinc/docker-nginx.git
+
+Tags: 1.11.10, mainline, 1, 1.11, latest
+GitCommit: 7b33a90d7441909664a920b0687db8d984ac314b
+Directory: mainline/jessie
+
+Tags: 1.11.10-alpine, mainline-alpine, 1-alpine, 1.11-alpine, alpine
+GitCommit: 7b33a90d7441909664a920b0687db8d984ac314b
+Directory: mainline/alpine
+
+Tags: 1.10.3, stable, 1.10
+GitCommit: 014e624239987a0a46bee5b44088a8c5150bf0bb
+Directory: stable/jessie
+
+Tags: 1.10.3-alpine, stable-alpine, 1.10-alpine
+GitCommit: 014e624239987a0a46bee5b44088a8c5150bf0bb
+Directory: stable/alpine

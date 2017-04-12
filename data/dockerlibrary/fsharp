@@ -1,0 +1,14 @@
+Maintainers: Henrik Feldt <henrik@haf.se> (@haf)
+GitRepo: https://github.com/fsprojects/docker-fsharp.git
+
+Tags: latest, 4, 4.1, 4.1.0.1
+GitCommit: 289a5e0066c69255c055dd5ee22f2e583d37fab4
+Directory: 4.1.0.1
+
+Tags: 4.0, 4.0.1, 4.0.1.1
+GitCommit: 289a5e0066c69255c055dd5ee22f2e583d37fab4
+Directory: 4.0.1.1
+
+Tags: 4.0.0.4
+GitCommit: 289a5e0066c69255c055dd5ee22f2e583d37fab4
+Directory: 4.0.0.4
