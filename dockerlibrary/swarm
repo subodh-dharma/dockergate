@@ -1,9 +1,0 @@
-Maintainers: Alexandre Beslic <abronan@docker.com> (@abronan),
-             Andrea Luzzardi <al@docker.com> (@aluzzardi),
-             Dong Chen <dong@docker.com> (@dongluochen),
-             Nishant Totla <nishanttotla@gmail.com> (@nishanttotla),
-             Victor Vieux <vieux@docker.com> (@vieux)
-GitRepo: https://github.com/docker/swarm-library-image.git
-
-Tags: 1.2.6, latest
-GitCommit: 3725bf97c64a9425fc609d32df907170657a6b84

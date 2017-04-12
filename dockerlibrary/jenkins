@@ -1,9 +1,0 @@
-# maintainer: Nicolas De Loof <nicolas.deloof@gmail.com> (@ndeloof)
-# maintainer: Michael Neale <mneale@cloudbees.com> (@michaelneale)
-# maintainer: Carlos Sanchez <csanchez@cloudbees.com> (@carlossg)
-
-latest: git://github.com/jenkinsci/jenkins-ci.org-docker@8d23b180d1a8afbcaab37f2a8167b5ace8632ec9
-2.32.3: git://github.com/jenkinsci/jenkins-ci.org-docker@8d23b180d1a8afbcaab37f2a8167b5ace8632ec9
-
-alpine: git://github.com/jenkinsci/jenkins-ci.org-docker@6bb01b6a218e0d9618faf7ce80c4b5bfa9331545
-2.32.3-alpine: git://github.com/jenkinsci/jenkins-ci.org-docker@6bb01b6a218e0d9618faf7ce80c4b5bfa9331545

@@ -1,3 +1,0 @@
-#FROM gliderlabs/logspout:master
-FROM dhallum/logspout:latest
-MAINTAINER David Hallum <david@driveclutch.com>
