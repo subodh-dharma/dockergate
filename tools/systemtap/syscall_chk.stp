@@ -1,0 +1,25 @@
+#! /usr/bin/env stap
+
+global syscall_list
+
+probe begin {
+ printf("starting syscall_chk.stp...\n")
+ init_lists()
+}
+
+probe end {
+ foreach(s+ in syscall_list){
+  printf("%5s, %d\n", s, syscall_list[s])
+ }
+ printf("Completed!\n")
+}
+
+
+probe nd_syscall.*.return {
+# printf("%s\n",name)
+ syscall_list[name]++
+}
+
+function init_lists(){
+ syscall_list["systemcall"]=1
+}
