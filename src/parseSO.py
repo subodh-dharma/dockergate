@@ -45,7 +45,7 @@ while line:
   if matchexpr2:
    func_name = matchexpr2.group().strip('<')
    tempfunc.name = func_name
-   #print func_name
+   print func_name
   while line: 
   # finding the mov stmt before the syscall
    if 'mov' in line:
@@ -80,9 +80,11 @@ while line:
      if _jump != tempfunc.name:
       tempfunc.callq.add(_jump) 
     except:
-     print 'Unexpected parameter in Callq ', jump_call
+     #print 'Unexpected parameter in Callq ', jump_call
+     a = ''
    line = fo.readline()
    if not line.strip():
+    func_list[tempfunc.name] = tempfunc
     break
  line = fo.readline()
 
