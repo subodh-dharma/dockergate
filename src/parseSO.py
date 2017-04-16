@@ -17,7 +17,7 @@ class funcsyscall:
    return self.__str__()
 
 # List of jump instructions
-jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jxcz', 'jc', 'jnc', 'jo', 'jno', 'jp','jpe', 'jnp', 'jpo', 'jns', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge', 'jle', 'jng']
+jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jxcz', 'jc', 'jnc', 'jo', 'jno', 'jp','jpe', 'jnp', 'jpo', 'jns', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge', 'jle', 'jng', 'jmpq']
 
 func_list = {}
 except_list = ''
