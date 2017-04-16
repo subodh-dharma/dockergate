@@ -36,7 +36,7 @@ line = fo.readline()
 while line:
  # header of function - to get the func name
  tempfunc = funcsyscall('default')
- matchexpr1 = re.search(r'\w*\s+<\w*@@\w*[.\d]*>:', line,re.I)
+ matchexpr1 = re.search(r'\w*\s+<\w*@+\w*[.\d]*>:', line,re.I)
  if matchexpr1:
   #print line
   result = re.compile('<\w*')

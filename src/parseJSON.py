@@ -5,28 +5,33 @@ rawlibc = ''
 callq_exc = set()
 
 
-with open('./data/libc_f.json','r') as libcjson:
+with open('./data/libc_full.json','r') as libcjson:
  rawlibc = eval(libcjson.read())
 
 
 for key in rawlibc:
- if len(rawlibc[key]["callqs"]) > 0:
-  #print 'do something'
-  for index in range(0, len(rawlibc[key]["callqs"])):
+ callq_len = len(rawlibc[key]["callqs"])
+ if callq_len > 0:
+  #print key, '$$$$$$'
+  for index in range(0, callq_len):
    try:
-    f_callq = rawlibc[key]["callqs"][index]
-    print f_callq
-    if len(rawlibc[f_callq]["callqs"]) > 0:
-     continue
-    else: 
-     rawlibc[key]["syscalls"] = rawlibc[key]["syscalls"] + rawlibc[f_callq]["syscalls"]
-     rawlibc[key]["callqs"].remove(f_callq)
+    callq_func = rawlibc[key]["callqs"][index]
+    rawlibc[key]["syscalls"] = rawlibc[key]["syscalls"] + rawlibc[callq_func]["syscalls"]
    except:
-    #print 'Function not found in SO', f_callq
-    callq_exc.add(f_callq)
-    
- else:
-  print 'do nothing'
+    callq_exc.add(callq_func)
+ 
+ index = 0
+ callq_l = callq_len
+ while index < callq_l:
+   callq_func = rawlibc[key]["callqs"][index]
+   #print callq_func, '**********'
+   try:
+    if len(rawlibc[callq_func]["callqs"]) == 0:
+     rawlibc[key]["callqs"].remove(callq_func)
+     callq_l = callq_l - 1
+    index = index + 1
+   except:
+    index = index + 1 
 
 
 #print rawlibc
