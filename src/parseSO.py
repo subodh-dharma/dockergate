@@ -17,7 +17,7 @@ class funcsyscall:
    return self.__str__()
 
 # List of jump instructions
-jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jxcz', 'jc', 'jnc', 'jo', 'jno', 'jp','jpe', 'jnp', 'jpo', 'jns', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge', 'jle', 'jng']
+jump_instr = ['callq','je', 'jz', 'jle', 'jnz', 'jne', 'js', 'ja', 'jnbe', 'jae', 'jnb', 'jb', 'jnae', 'jbe', 'jna', 'jxcz', 'jc', 'jnc', 'jo', 'jno', 'jp','jpe', 'jnp', 'jpo', 'jns', 'jg', 'jnle', 'jge', 'jnl', 'jl', 'jnge', 'jle', 'jng', 'jmpq']
 
 func_list = {}
 except_list = ''
@@ -36,7 +36,7 @@ line = fo.readline()
 while line:
  # header of function - to get the func name
  tempfunc = funcsyscall('default')
- matchexpr1 = re.search(r'\w*\s+<\w*@@\w*[.\d]*>:', line,re.I)
+ matchexpr1 = re.search(r'\w*\s+<\w*@+\w*[.\d]*>:', line,re.I)
  if matchexpr1:
   #print line
   result = re.compile('<\w*')
@@ -45,7 +45,7 @@ while line:
   if matchexpr2:
    func_name = matchexpr2.group().strip('<')
    tempfunc.name = func_name
-   #print func_name
+   print func_name
   while line: 
   # finding the mov stmt before the syscall
    if 'mov' in line:
@@ -80,9 +80,11 @@ while line:
      if _jump != tempfunc.name:
       tempfunc.callq.add(_jump) 
     except:
-     print 'Unexpected parameter in Callq ', jump_call
+     #print 'Unexpected parameter in Callq ', jump_call
+     a = ''
    line = fo.readline()
    if not line.strip():
+    func_list[tempfunc.name] = tempfunc
     break
  line = fo.readline()
 
