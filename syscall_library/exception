@@ -1,0 +1,287 @@
+/lib/x86_64-linux-gnu/libe2p.so.2
+/lib/x86_64-linux-gnu/libwrap.so.0
+/lib/x86_64-linux-gnu/libply-boot-client.so.4
+/lib/x86_64-linux-gnu/libusb-0.1.so.4
+/lib/x86_64-linux-gnu/libulockmgr.so.1
+/lib/x86_64-linux-gnu/libnl-genl-3.so.200
+/lib/x86_64-linux-gnu/libnss_files.so.2
+/lib/x86_64-linux-gnu/libnss_nisplus.so.2
+/lib/x86_64-linux-gnu/liblzo2.so.2
+/lib/x86_64-linux-gnu/libply-splash-core.so.4
+/lib/x86_64-linux-gnu/libss.so.2
+/lib/x86_64-linux-gnu/libexpat.so.1
+/lib/x86_64-linux-gnu/libnl-3.so.200
+/lib/x86_64-linux-gnu/libncursesw.so.5
+/lib/x86_64-linux-gnu/libseccomp.so.2
+000000000001f3a0 <seccomp_syscall_resolve_num_arch@@Base>:
+000000000001f3a0 <seccomp_syscall_resolve_num_arch@@Base>:
+000000000001f3a0 <seccomp_syscall_resolve_num_arch@@Base>:
+000000000001f3a0 <seccomp_syscall_resolve_num_arch@@Base>:
+000000000001f400 <seccomp_syscall_resolve_name_arch@@Base>:
+000000000001f400 <seccomp_syscall_resolve_name_arch@@Base>:
+000000000001f400 <seccomp_syscall_resolve_name_arch@@Base>:
+000000000001f400 <seccomp_syscall_resolve_name_arch@@Base>:
+000000000001f400 <seccomp_syscall_resolve_name_arch@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f470 <seccomp_syscall_resolve_name_rewrite@@Base>:
+000000000001f510 <seccomp_syscall_resolve_name@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+000000000001f520 <seccomp_syscall_priority@@Base>:
+/lib/x86_64-linux-gnu/libbsd.so.0
+000000000000f530 <wcslcpy@@LIBBSD_0.5>:
+/lib/x86_64-linux-gnu/libdbus-1.so.3
+/lib/x86_64-linux-gnu/libusb-1.0.so.0
+000000000000ad60 <libusb_hotplug_register_callback@@Base>:
+/lib/x86_64-linux-gnu/libtinfo.so.5
+/lib/x86_64-linux-gnu/libcryptsetup.so.4
+/lib/x86_64-linux-gnu/libgcrypt.so.20
+/lib/x86_64-linux-gnu/libsystemd.so.0
+0000000000010040 <sd_bus_new@@LIBSYSTEMD_221>:
+00000000000275b0 <sd_event_default@@LIBSYSTEMD_221>:
+0000000000037900 <sd_bus_add_object@@LIBSYSTEMD_221>:
+0000000000054ba0 <sd_bus_default_flush_close@@LIBSYSTEMD_227>:
+/lib/x86_64-linux-gnu/libBrokenLocale.so.1
+/lib/x86_64-linux-gnu/libpcsclite.so.1
+/lib/x86_64-linux-gnu/libdns-export.so.162
+/lib/x86_64-linux-gnu/libcrypt.so.1
+0000000000000b40 <crypt_r@@GLIBC_2.2.5-0x230>:
+/lib/x86_64-linux-gnu/libnih-dbus.so.1
+/lib/x86_64-linux-gnu/libhistory.so.6
+/lib/x86_64-linux-gnu/libip4tc.so.0
+/lib/x86_64-linux-gnu/libcom_err.so.2
+/lib/x86_64-linux-gnu/libgpg-error.so.0
+/lib/x86_64-linux-gnu/libthread_db.so.1
+/lib/x86_64-linux-gnu/libisc-export.so.160
+/lib/x86_64-linux-gnu/libkeyutils.so.1
+/lib/x86_64-linux-gnu/libaudit.so.1
+0000000000003d40 <audit_rule_syscall_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004310 <audit_rule_syscallbyname_data@@Base>:
+0000000000004400 <audit_add_watch_dir@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000005920 <audit_name_to_syscall@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+0000000000006020 <audit_syscall_to_name@@Base>:
+/lib/x86_64-linux-gnu/libslang.so.2
+/lib/x86_64-linux-gnu/libmount.so.1
+000000000001e5a0 <mnt_context_set_syscall_status@@MOUNT_2.19>:
+000000000001e5a0 <mnt_context_set_syscall_status@@MOUNT_2.19>:
+0000000000021f50 <mnt_context_do_mount@@MOUNT_2.19>:
+0000000000021f50 <mnt_context_do_mount@@MOUNT_2.19>:
+0000000000026c40 <mnt_monitor_event_cleanup@@MOUNT_2.26>:
+0000000000026c40 <mnt_monitor_event_cleanup@@MOUNT_2.26>:
+0000000000026c40 <mnt_monitor_event_cleanup@@MOUNT_2.26>:
+/lib/x86_64-linux-gnu/libglib-2.0.so.0
+0000000000020220 <g_bit_lock@@Base>:
+00000000000202c0 <g_bit_unlock@@Base>:
+0000000000020320 <g_pointer_bit_lock@@Base>:
+0000000000020420 <g_pointer_bit_unlock@@Base>:
+000000000008e110 <g_unix_fd_add@@Base>:
+000000000008e110 <g_unix_fd_add@@Base>:
+000000000008ec00 <g_cond_wait@@Base>:
+000000000008ec40 <g_cond_signal@@Base>:
+000000000008ec70 <g_cond_broadcast@@Base>:
+000000000008eca0 <g_cond_wait_until@@Base>:
+/lib/x86_64-linux-gnu/libparted.so.2
+/lib/x86_64-linux-gnu/libcgmanager.so.0
+/lib/x86_64-linux-gnu/libattr.so.1
+0000000000002ff0 <setxattr@@ATTR_1.0>:
+0000000000003020 <lsetxattr@@ATTR_1.0>:
+0000000000003050 <fsetxattr@@ATTR_1.0>:
+0000000000003080 <getxattr@@ATTR_1.0>:
+00000000000030a0 <lgetxattr@@ATTR_1.0>:
+00000000000030c0 <fgetxattr@@ATTR_1.0>:
+00000000000030e0 <listxattr@@ATTR_1.0>:
+0000000000003100 <llistxattr@@ATTR_1.0>:
+0000000000003120 <flistxattr@@ATTR_1.0>:
+0000000000003140 <removexattr@@ATTR_1.0>:
+0000000000003160 <lremovexattr@@ATTR_1.0>:
+0000000000003180 <fremovexattr@@ATTR_1.0>:
+/lib/x86_64-linux-gnu/libnss_compat.so.2
+/lib/x86_64-linux-gnu/libcap.so.2
+/lib/x86_64-linux-gnu/libpthread.so.0
+0000000000005be0 <sighandler_setxid>:
+0000000000006c70 <__nptl_setxid>:
+0000000000011390 <__restore_rt>:
+0000000000012470 <pthread_getname_np>:
+/lib/x86_64-linux-gnu/libpng12.so.0
+/lib/x86_64-linux-gnu/libuuid.so.1
+0000000000002820 <uuid_variant@@UUID_1.0>:
+0000000000002820 <uuid_variant@@UUID_1.0>:
+/lib/x86_64-linux-gnu/libpci.so.3
+/lib/x86_64-linux-gnu/libc.so.6
+000000000001f8b0 <__libc_init_first@@GLIBC_2.2.5-0xce0>:
+000000000002ac20 <setlocale@@GLIBC_2.2.5>:
+0000000000030640 <ngettext@@GLIBC_2.2.5>:
+0000000000035470 <killpg@@GLIBC_2.2.5>:
+00000000000791a0 <_IO_file_read@@GLIBC_2.2.5>:
+000000000007d0d0 <_IO_str_seekoff@@GLIBC_2.2.5>:
+00000000000cd3c0 <__sysconf@@GLIBC_2.2.5>:
+00000000000f53b0 <posix_spawnp@@GLIBC_2.15>:
+00000000001008d0 <syscall@@GLIBC_2.2.5>:
+00000000001008d0 <syscall@@GLIBC_2.2.5>:
+0000000000104ac0 <ustat@@GLIBC_2.2.5>:
+0000000000104ac0 <ustat@@GLIBC_2.2.5>:
+0000000000104ac0 <ustat@@GLIBC_2.2.5>:
+00000000001169a0 <__read_chk@@GLIBC_2.4>:
+000000000013fc40 <getlogin@@GLIBC_2.2.5>:
+00000000001406f0 <getutline_r@@GLIBC_2.2.5>:
+00000000001406f0 <getutline_r@@GLIBC_2.2.5>:
+/lib/x86_64-linux-gnu/libmvec.so.1
+/lib/x86_64-linux-gnu/libnih.so.1
+/lib/x86_64-linux-gnu/libfuse.so.2
+/lib/x86_64-linux-gnu/libacl.so.1
+/lib/x86_64-linux-gnu/libply.so.4
+/lib/x86_64-linux-gnu/libatasmart.so.4
+/lib/x86_64-linux-gnu/libpam.so.0
+/lib/x86_64-linux-gnu/libbrlapi.so.0.6
+/lib/x86_64-linux-gnu/libntfs-3g.so.861
+/lib/x86_64-linux-gnu/libcidn.so.1
+/lib/x86_64-linux-gnu/librt.so.1
+/lib/x86_64-linux-gnu/libnss_hesiod.so.2
+/lib/x86_64-linux-gnu/libnsl.so.1
+/lib/x86_64-linux-gnu/libreadline.so.6
+/lib/x86_64-linux-gnu/libext2fs.so.2
+/lib/x86_64-linux-gnu/libpcre.so.3
+/lib/x86_64-linux-gnu/libpamc.so.0
+/lib/x86_64-linux-gnu/libpam_misc.so.0
+/lib/x86_64-linux-gnu/libblkid.so.1
+000000000001fbb0 <blkid_topology_get_physical_sector_size@@BLKID_2.17>:
+000000000001fbb0 <blkid_topology_get_physical_sector_size@@BLKID_2.17>:
+000000000001fbb0 <blkid_topology_get_physical_sector_size@@BLKID_2.17>:
+/lib/x86_64-linux-gnu/libsmartcols.so.1
+000000000000add0 <scols_init_debug@@SMARTCOLS_2.25>:
+000000000000add0 <scols_init_debug@@SMARTCOLS_2.25>:
+000000000000add0 <scols_init_debug@@SMARTCOLS_2.25>:
+/lib/x86_64-linux-gnu/libanl.so.1
+/lib/x86_64-linux-gnu/libjson-c.so.2
+/lib/x86_64-linux-gnu/libudev.so.1
+000000000000be10 <udev_device_get_parent_with_subsystem_devtype@@LIBUDEV_183>:
+/lib/x86_64-linux-gnu/libbz2.so.1
+/lib/x86_64-linux-gnu/libnss_nis.so.2
+/lib/x86_64-linux-gnu/libkmod.so.2
+0000000000009730 <kmod_module_insert_module@@LIBKMOD_5>:
+/lib/x86_64-linux-gnu/libnss_dns.so.2
+/lib/x86_64-linux-gnu/libm.so.6
+/lib/x86_64-linux-gnu/libncurses.so.5
+/lib/x86_64-linux-gnu/libfdisk.so.1
+000000000002ff60 <fdisk_gpt_set_partition_attrs@@FDISK_2.27>:
+000000000002ff60 <fdisk_gpt_set_partition_attrs@@FDISK_2.27>:
+000000000002ff60 <fdisk_gpt_set_partition_attrs@@FDISK_2.27>:
+/lib/x86_64-linux-gnu/libdl.so.2
+/lib/x86_64-linux-gnu/libutil.so.1
+/lib/x86_64-linux-gnu/libapparmor.so.1
+/lib/x86_64-linux-gnu/libxtables.so.11
+/lib/x86_64-linux-gnu/libmnl.so.0
+/lib/x86_64-linux-gnu/libbz2.so.1.0
+/lib/x86_64-linux-gnu/libz.so.1
+/lib/x86_64-linux-gnu/libnewt.so.0.52
+/lib/x86_64-linux-gnu/libprocps.so.4
+/lib/x86_64-linux-gnu/libatm.so.1
+/lib/x86_64-linux-gnu/libip6tc.so.0
+/lib/x86_64-linux-gnu/libiptc.so.0
+/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+/lib/x86_64-linux-gnu/libresolv.so.2
+/lib/x86_64-linux-gnu/libply-splash-graphics.so.4
+/lib/x86_64-linux-gnu/libpopt.so.0
+/lib/x86_64-linux-gnu/liblzma.so.5
