@@ -8,15 +8,17 @@ output_list = output.splitlines()
 
 for value in output_list:
  if 'U' not in value:
+  print value
   output_list.remove(value)
-   
+print '***'   
 
 for index in range(0, len(output_list)):
- output_list[index] = output_list[index].split('U')[1].strip()
+ if 'U' in output_list[index]:
+  output_list[index] = output_list[index].split('U')[1].strip()
 
 libc = ''
 
-with open('./data/libc_out.json', 'r') as libcfile:
+with open('./data/output_mapping', 'r') as libcfile:
  libc = eval(libcfile.read())
 
 syscalls = set()

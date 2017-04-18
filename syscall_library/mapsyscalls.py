@@ -61,8 +61,11 @@ def process_function(l,l1,l2,c, final_list,exception):
 			else:
 				exception.write(l[l1])
 		if 'callq' in l[i]:
-			if '@plt' not in l[i] and '<' in l[i]:
-				function_name = l[i].split('<')[1].split('>')[0].split('@@')[0]
+			if '<' in l[i]:
+				if '@@' in l[i]:
+					function_name = l[i].split('<')[1].split('>')[0].split('@@')[0]
+				elif '@' in l[i]:	
+					function_name = l[i].split('<')[1].split('>')[0].split('@')[0]
 				if function_name in final_list.keys():
 					for f in final_list[function_name].syscalls:
 						fun.syscalls.add(f)
