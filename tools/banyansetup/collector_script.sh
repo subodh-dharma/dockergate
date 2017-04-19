@@ -6,7 +6,7 @@ export GOPATH=$(pwd)/test_env/$1
 
 echo $GOPATH
 
-if [-d "$GOPATH"]; then
+if [ -d "$GOPATH" ]; then
  rm -rf "$GOPATH"
 fi
 
