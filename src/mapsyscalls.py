@@ -8,7 +8,6 @@ output_list = output.splitlines()
 
 for value in output_list:
  if 'U' not in value:
-  print value
   output_list.remove(value)
 print '***'   
 
@@ -31,7 +30,11 @@ for value in output_list:
    for sys_num in (libc['__' + value]["syscalls"]):
     syscalls.add(sys_num)
   except:
-   print 'Doesn\'t exist in lib :', value
+   try:
+    for sys_num in (libc['_IO_' + value]["syscalls"]):
+     syscalls.add(sys_num)
+   except:
+    print 'Doesn\'t exist in lib :', value
 
 #print output_list
 print syscalls
