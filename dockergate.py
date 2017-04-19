@@ -2,6 +2,8 @@
 import os
 import subprocess
 import sys
+sys.path.append('./src')
+import mapsyscalls
 
 
 docker_img_name = sys.argv[1]
@@ -55,8 +57,12 @@ print ldd_file_path, nm_file_path
 # if existing - no processing skip to next
 # else read objdump of .so and generate syscall mapping
 
-
+##   YET TO CONVERT
 
 
 # process the nm output to identify library calls
 # identify corrosponding syscalls and generate policy
+
+print 'Converting nm output to json policy:'
+mapsyscalls.map_nm_2_sys(nm_file_path)
+print 'Policy Generated!'
