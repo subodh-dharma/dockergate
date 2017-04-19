@@ -1,4 +1,7 @@
 # init script for the workflow
+import os
+
+
 
 docker_img_name = sys.argv[1]
 
