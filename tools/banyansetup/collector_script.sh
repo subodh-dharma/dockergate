@@ -20,5 +20,7 @@ mkdir $GOPATH/output
 export COLLECTOR_DIR=$GOPATH/src/github.com/banyanops/collector
 export COLLECTOR_HOST_DIR=$GOPATH/output
 export BANYAN_HOST_DIR=$GOPATH/output
+export BANYAN_OUTPUT_DIR=$GOPATH/output/hostcollector/banyanout
+
 
 $GOPATH/bin/collector registry-1.docker.io  $1 --maximages 1
