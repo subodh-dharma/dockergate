@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import json
 
 file_name = sys.argv[1]
 
@@ -24,10 +25,14 @@ syscalls = set()
 for value in output_list:
  try:
   for sys_num in (libc[value]["syscalls"]):
+   if sys_num.startswith('sys_'):
+    sys_num = sys_num.strip('sys_')
    syscalls.add(sys_num)
  except:
   try:
    for sys_num in (libc['__' + value]["syscalls"]):
+    if sys_num.startswith('sys_'):
+     sys_num = sys_num.strip('sys_')
     syscalls.add(sys_num)
   except:
    try:
@@ -37,4 +42,17 @@ for value in output_list:
     print 'Doesn\'t exist in lib :', value
 
 #print output_list
-print syscalls
+#print syscalls
+
+policy = {}
+policy["defaultAction"] = "SCMP_ACT_ERRNO"
+policy["syscalls"] = {}
+policy["syscalls"]["names"] = list(syscalls)
+policy["syscalls"]["action"] = "SCMP_ACT_ALLOW"
+
+#print policy
+
+policyjson = open('./policy.json', 'w+')
+policyjson.write(str(policy))
+policyjson.close()
+

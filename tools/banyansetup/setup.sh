@@ -1,10 +1,9 @@
-
 #!/bin/bash
 
-export GOPATH=$PWD
+export GOPATH=$(pwd)
 export COLLECTOR_DIR=$GOPATH/src/github.com/banyanops/collector
-export COLLECTOR_HOST_DIR=$PWD/output
-export BANYAN_HOST_DIR=$PWD/output
+export COLLECTOR_HOST_DIR=$(pwd)/output
+export BANYAN_HOST_DIR=$(pwd)/output
 
 sudo apt-get install -y golang
 go get -u github.com/banyanops/collector/...
