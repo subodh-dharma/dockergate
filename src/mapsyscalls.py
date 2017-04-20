@@ -52,13 +52,29 @@ def map_nm_2_sys(filename):
 
 def writePolicyFile(syscalls):
  
+ try:
+  removeUnknownSyscalls(syscalls)
+ except:
+  print 'Exception Occured!!'
  policy = {}
  policy["defaultAction"] = "SCMP_ACT_ERRNO"
  policy["syscalls"] = {}
  policy["syscalls"]["names"] = list(syscalls)
  policy["syscalls"]["action"] = "SCMP_ACT_ALLOW"
-
+ policy_json = json.dumps(policy)
  policyjson = open('./policy_generated.json', 'w+')
- policyjson.write(str(policy))
+ policyjson.write(policy_json)
  policyjson.close()
+
+def removeUnknownSyscalls(syscalls):
+ default_policy = ''
+ with open('./data/policy/default.json', 'r') as defaultp:
+  default_policy = json.load(defaultp)
+ 
+ default_list = set(default_policy["syscalls"][0]["names"])
+ final_list = list(default_list.intersection(syscalls))
+ print 'DEFAULT LIST ************\n', default_list
+ print 'INPUT LIST ########### \n', final_list
+ return final_list
+
 
