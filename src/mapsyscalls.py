@@ -54,11 +54,15 @@ def writePolicyFile(syscalls):
  
  policy = {}
  policy["defaultAction"] = "SCMP_ACT_ERRNO"
- policy["syscalls"] = {}
- policy["syscalls"]["names"] = list(syscalls)
- policy["syscalls"]["action"] = "SCMP_ACT_ALLOW"
-
+ policy["syscalls"] = []
+ for syscall in syscalls:
+  s = {}
+  s['name'] = syscall
+  s["action"] = "SCMP_ACT_ALLOW"
+  s["args"] = []
+  policy["syscalls"].append(s)
+ 
  policyjson = open('./policy_generated.json', 'w+')
- policyjson.write(str(policy))
+ policyjson.write(json.dumps(policy))
  policyjson.close()
 

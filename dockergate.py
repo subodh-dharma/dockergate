@@ -23,8 +23,8 @@ def collector_execute(cmd):
 def worker(cmd):
  "Check for completion of collector"
  for path in collector_execute([cmd]):
+   print path
    if 'Looping in ' in path:
-    print path
     print "Looks like script collection is complete"
     break
   #cmd2 = "./cleanup.sh " + cmd.split(' ')[1]
@@ -71,6 +71,6 @@ print 'Policy Generated!'
 ## calling clean up
 ## delete image after scanning, delete all test_env data
 
-cleanup = subprocess.Popen(["sudo ./tools/banyansetup/cleanup.sh "+docker_img_name],shell=True, stdin=None, stdout=None,stderr=None)
+#cleanup = subprocess.Popen(["sudo ./tools/banyansetup/cleanup.sh "+docker_img_name],shell=True, stdin=None, stdout=None,stderr=None)
 print '*****'
 
