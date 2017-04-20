@@ -66,3 +66,11 @@ print ldd_file_path, nm_file_path
 print 'Converting nm output to json policy:'
 mapsyscalls.map_nm_2_sys(nm_file_path)
 print 'Policy Generated!'
+
+
+## calling clean up
+## delete image after scanning, delete all test_env data
+
+cleanup = subprocess.Popen(["sudo ./tools/banyansetup/cleanup.sh "+docker_img_name],shell=True, stdin=None, stdout=None,stderr=None)
+print '*****'
+
