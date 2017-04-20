@@ -2,57 +2,63 @@ import subprocess
 import sys
 import json
 
-file_name = sys.argv[1]
+def map_nm_2_sys(filename):
 
-output = subprocess.check_output(['nm','-D',file_name])
-output_list = output.splitlines()
+ file_name = filename
+ #file_name = sys.argv[1]
 
-for value in output_list:
- if 'U' not in value:
-  output_list.remove(value)
-print '***'   
+ #output = subprocess.check_output(['nm','-D',file_name])
+ #output_list = output.splitlines()
 
-for index in range(0, len(output_list)):
- if 'U' in output_list[index]:
-  output_list[index] = output_list[index].split('U')[1].strip()
+ output_list = ''
+ 
+ with open(file_name, 'r') as output:
+  output_list = output.readlines()
 
-libc = ''
+ for value in output_list:
+  if 'U' not in value:
+   #print value
+   output_list.remove(value)
+ #print '***'   
 
-with open('./data/output_mapping', 'r') as libcfile:
- libc = eval(libcfile.read())
+ for index in range(0, len(output_list)):
+  if 'U' in output_list[index]:
+   output_list[index] = output_list[index].split('U')[1].strip()
 
-syscalls = set()
-for value in output_list:
- try:
-  for sys_num in (libc[value]["syscalls"]):
-   if sys_num.startswith('sys_'):
-    sys_num = sys_num.strip('sys_')
-   syscalls.add(sys_num)
- except:
+ libc = ''
+
+ with open('./src/data/output_mapping', 'r') as libcfile:
+  libc = eval(libcfile.read())
+
+ syscalls = set()
+ exceptions = set()
+ for value in output_list:
   try:
-   for sys_num in (libc['__' + value]["syscalls"]):
+   for sys_num in (libc[value]["syscalls"]):
     if sys_num.startswith('sys_'):
      sys_num = sys_num.strip('sys_')
     syscalls.add(sys_num)
   except:
    try:
-    for sys_num in (libc['_IO_' + value]["syscalls"]):
+    for sys_num in (libc['__' + value]["syscalls"]):
+     if sys_num.startswith('sys_'):
+      sys_num = sys_num.strip('sys_')
      syscalls.add(sys_num)
    except:
-    print 'Doesn\'t exist in lib :', value
+    exceptions.add(value)
+    #print 'Doesn\'t exist in lib :', value
+ writePolicyFile(syscalls)
 
-#print output_list
-#print syscalls
 
-policy = {}
-policy["defaultAction"] = "SCMP_ACT_ERRNO"
-policy["syscalls"] = {}
-policy["syscalls"]["names"] = list(syscalls)
-policy["syscalls"]["action"] = "SCMP_ACT_ALLOW"
+def writePolicyFile(syscalls):
+ 
+ policy = {}
+ policy["defaultAction"] = "SCMP_ACT_ERRNO"
+ policy["syscalls"] = {}
+ policy["syscalls"]["names"] = list(syscalls)
+ policy["syscalls"]["action"] = "SCMP_ACT_ALLOW"
 
-#print policy
-
-policyjson = open('./policy.json', 'w+')
-policyjson.write(str(policy))
-policyjson.close()
+ policyjson = open('./policy_generated.json', 'w+')
+ policyjson.write(str(policy))
+ policyjson.close()
 
