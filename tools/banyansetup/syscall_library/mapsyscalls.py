@@ -48,7 +48,7 @@ def process_function(l,l1,l2,c, final_list,exception):
 	else:
 		name = l[l1].split('<')[1].split('>')[0]
 	fun = func(name)
-	print name
+	print(name)
 	prev_components = [x.strip() for x in l[l1+1].split('\t')]
 	mov_eax_line = None
 	syscall = None
@@ -66,7 +66,7 @@ def process_function(l,l1,l2,c, final_list,exception):
 					function_name = l[i].split('<')[1].split('>')[0].split('@@')[0]
 				elif '@' in l[i]:	
 					function_name = l[i].split('<')[1].split('>')[0].split('@')[0]
-				if function_name in final_list.keys():
+				if function_name in list(final_list.keys()):
 					for f in final_list[function_name].syscalls:
 						fun.syscalls.add(f)
 				else:
@@ -93,7 +93,7 @@ if os.path.exists('output_mapping'):
 	output_file = open('output_mapping','r')
 	line = output_file.readline()
 	dict_obj = json.loads(line)
-	for d in dict_obj.keys():
+	for d in list(dict_obj.keys()):
 		final_list[d] = func.parse(dict_obj[d],d)
 	
 	output_file.close()
@@ -115,37 +115,37 @@ for i in  range(0,len(l)-1):
 				fun = process_function(l,l1,l2,c,final_list, exception_file)
 				if fun != None:
 					this_lib_list[fun.name] = fun
-			except Exception,e:
-				print 'EXCEPTION:'+l[l1]
+			except Exception as e:
+				print('EXCEPTION:'+l[l1])
 				exception_file.write(l[l1])
 		l1 = -1
 		l2 = -1
 		#if len(final_list.keys())>=400:
 		#	break
 #print len(final_list)
-print '*********************************************************************************************************'
+print('*********************************************************************************************************')
 for i in range(0,1):
 	count = 0
-	for fun in this_lib_list.keys():
+	for fun in list(this_lib_list.keys()):
 		for callq in this_lib_list[fun].callq:
-			if callq in this_lib_list.keys():
+			if callq in list(this_lib_list.keys()):
 				count = count + 1
 				for s in this_lib_list[callq].syscalls:
 					this_lib_list[fun].syscalls.add(s)
 		for callq in this_lib_list[fun].callq:
-			if callq in final_list.keys():
+			if callq in list(final_list.keys()):
 				count = count + 1
 				for s in final_list[callq].syscalls:
 					this_lib_list[fun].syscalls.add(s)
-	print count
+	print(count)
 
 json_write = {}
-for f in final_list.keys():
+for f in list(final_list.keys()):
 	json_write[f] = final_list[f].jsonify()
-for f in this_lib_list.keys():
+for f in list(this_lib_list.keys()):
 	json_write[f] = this_lib_list[f].jsonify()
 
-print len(json_write.keys())
+print(len(list(json_write.keys())))
 output_file.write(json.dumps(json_write))
 output_file.close()
 

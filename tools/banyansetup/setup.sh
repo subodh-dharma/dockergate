@@ -10,6 +10,11 @@ cd $GOPATH
 sudo apt-get install -y golang
 go get -u github.com/banyanops/collector/...
 
+cp run_nm.sh $COLLECTOR_DIR/data/userscripts
+#cp print_file.sh $COLLECTOR_DIR/data/userscripts
+cp find_where.sh $COLLECTOR_DIR/data/userscripts
+cp -r syscall_library/ $COLLECTOR_DIR/data/bin/
+
 cd $COLLECTOR_DIR
 
 #export DOCKER_USER=$1

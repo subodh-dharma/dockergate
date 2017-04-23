@@ -1,7 +1,33 @@
 import subprocess
 import sys
 import json
+import os
 
+def copy_new_mapping(filename):
+ f = open(filename,'r')
+ index = open('index_tmp','w')
+ out = open('output_mapping_tmp','w')
+ in_index = False
+ in_json = False
+ for line in f:
+  if 'START INDEX' in line:
+   in_index = True
+   continue
+  if 'END INDEX' in line:
+   in_index = False
+  if in_index:
+   index.write(line.strip() + '\n')
+  if 'START JSON' in line:
+   in_json = True
+   continue
+  if in_json:
+   out.write(line)
+ index.close()
+ out.close()
+ if os.stat('index_tmp').st_size>0 and os.stat('output_mapping_tmp').st_size>0:
+  os.rename('index_tmp','./src/data/index')
+  os.rename('output_mapping_tmp','./src/data/output_mapping')
+  
 def map_nm_2_sys(filename):
 
  file_name = filename
@@ -35,17 +61,17 @@ def map_nm_2_sys(filename):
  for value in output_list:
   try:
    for sys_num in (libc[value]["syscalls"]):
-    if sys_num.startswith('sys_'):
-     sys_num = sys_num.strip('sys_')
     syscalls.add(sys_num)
   except:
    try:
     for sys_num in (libc['__' + value]["syscalls"]):
-     if sys_num.startswith('sys_'):
-      sys_num = sys_num.strip('sys_')
      syscalls.add(sys_num)
    except:
-    exceptions.add(value)
+     try:
+      for sys_num in (libc['_IO_' + value]["syscalls"]):
+       syscalls.add(sys_num)
+     except:
+      exceptions.add(value)
     #print 'Doesn\'t exist in lib :', value
  writePolicyFile(syscalls)
 
