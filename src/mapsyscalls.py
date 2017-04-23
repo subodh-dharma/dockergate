@@ -58,6 +58,22 @@ def map_nm_2_sys(filename):
 
  syscalls = set()
  exceptions = set()
+ syscalls.add('capget')
+ syscalls.add('capset')
+ syscalls.add('chdir')
+ syscalls.add('futex')
+ syscalls.add('fchown')
+ syscalls.add('readdirent')
+ syscalls.add('getdents64')
+ syscalls.add('getpid')
+ syscalls.add('getppid')
+ syscalls.add('lstat')
+ syscalls.add('openat')
+ syscalls.add('prctl')
+ syscalls.add('setgid')
+ syscalls.add('setgroups')
+ syscalls.add('setuid')
+ syscalls.add('stat')
  for value in output_list:
   try:
    for sys_num in (libc[value]["syscalls"]):
@@ -77,7 +93,7 @@ def map_nm_2_sys(filename):
 
 
 def writePolicyFile(syscalls):
- 
+  
  policy = {}
  policy["defaultAction"] = "SCMP_ACT_ERRNO"
  policy["syscalls"] = []

@@ -10,7 +10,8 @@ find / -print | while IFS='"'  read -r file
 do 
     VAR=`file "$file"`
     #echo $VAR > /dev/null
-    case "$VAR" in *ELF*executable*):
+    #case "$VAR" in *ELF*executable*):
+    case "$VAR" in *ELF*):
         echo "ELF NM BEGIN FOR: $file"
 		cd syscall_library
 		python check_index.py "$file" 2>&1
