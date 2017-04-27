@@ -1,5 +1,11 @@
 \section{Related Work}
 \label{sec:relwork}
 
-Related Work (``somewhat related'' work goes here; directly related work
-goes into the Introduction)~\cite{dsd13}.
+After the introduction of the containers, many developers focused on the container hardening, which exploits the kernel capabilities and features to protect and secure the containers as well as limit the blast radius in case of any breach. Various approaches had been proposed earlier where different kernel features can be used to secure the container. Seccomp is one such feature on which DockerGate proposes its solution.  
+
+Docker being a young technology, it hasn't gained much traction on research in academia. But there are many community developers who attempt to bring tools or solutions in various aspects of the Docker. Docker-Slim~\cite{dockerslim}, is a similar project which primarily depends on dynamic analysis of the Docker containers. However, as discussed earlier in this paper, it is difficult to perform dynamic analysis because of the varied number of applications running inside the container . On the contrary, the static analysis scans all eligible files and  identify all possible system calls made by the binaries executables present in the docker image. The project aims to generate seccomp profiles by monitoring the interaction between a user and the Docker Container's HTTP APIs (if it has any). Since it uses Dynamic analysis, it depends upon how much code the user is able to trigger. This served to be one of the major limitations of this project.
+
+One more kernel feature that can be exploited for container hardening is AppArmor. LiCShield~\cite{mattetti} exploits this feature by generating rules for restricting the access of a docker container by monitoring the changes made by processes associated with container and convert it into Linux security module for AppArmor. The works of LiCShield was based on Docker 1.6 version which didn’t had the support of seccomp and apparmor profiles, but were required to depend on host operating system to implement AppArmor. LiCShield was required to be supported by the host operating system and Docker was not involved in any way. The monitored and controlled the processes forked by docker daemon.
+
+There have been proposals~\cite{dockerpolicymodules} related to shipping a SELinux policy along with the docker image, where SELinux features are enabled on the host machine, and the SELinux policy is applied to the docker containers executed from this image. But this proposal requires that all the host operating systems must have SElinux policy installed and enabled which is by default is disabled for most Linux based systems.
+
