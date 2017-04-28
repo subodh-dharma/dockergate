@@ -58,12 +58,24 @@ def writePolicyFile(syscalls):
   print 'Exception Occured!!'
  policy = {}
  policy["defaultAction"] = "SCMP_ACT_ERRNO"
- policy["syscalls"] = {}
- policy["syscalls"]["names"] = list(syscalls)
- policy["syscalls"]["action"] = "SCMP_ACT_ALLOW"
- policy_json = json.dumps(policy)
+ 
+ #policy["syscalls"] = {}
+ #policy["syscalls"]["names"] = list(syscalls)
+ #policy["syscalls"]["action"] = "SCMP_ACT_ALLOW"
+ #policy_json = json.dumps(policy)
+ #policyjson = open('./policy_generated.json', 'w+')
+ #policyjson.write(policy_json)
+ 
+ policy["syscalls"] = []
+ for syscall in syscalls:
+  s = {}
+  s['name'] = syscall
+  s["action"] = "SCMP_ACT_ALLOW"
+  s["args"] = []
+  policy["syscalls"].append(s)
+ 
  policyjson = open('./policy_generated.json', 'w+')
- policyjson.write(policy_json)
+ policyjson.write(json.dumps(policy))
  policyjson.close()
 
 def removeUnknownSyscalls(syscalls):

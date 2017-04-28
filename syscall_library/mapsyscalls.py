@@ -56,7 +56,7 @@ def process_function(l,l1,l2,c, final_list,exception):
 		if 'syscall' in l[i]:
 			num = follow_eax(l,l1,i,'eax')
 			if num != None:
-				final_name = c[num].split(',')[2]
+				final_name = c[num].split(',')[1]
 				fun.syscalls.add(final_name)
 			else:
 				exception.write(l[l1])
