@@ -93,3 +93,8 @@
 /lib/x86_64-linux-gnu/libply-splash-graphics.so.4
 /lib/x86_64-linux-gnu/libpopt.so.0
 /lib/x86_64-linux-gnu/liblzma.so.5
+/usr/lib/x86_64-linux-gnu/liblz4.so.1
+/lib/x86_64-linux-gnu/libgcc_s.so.1
+/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+/usr/lib/x86_64-linux-gnu/libapt-pkg.so.5.0
+/usr/lib/x86_64-linux-gnu/libapt-private.so.0.0

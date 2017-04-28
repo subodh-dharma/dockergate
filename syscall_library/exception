@@ -394,3 +394,16 @@
 /lib/x86_64-linux-gnu/libply-splash-graphics.so.4
 /lib/x86_64-linux-gnu/libpopt.so.0
 /lib/x86_64-linux-gnu/liblzma.so.5
+/usr/lib/x86_64-linux-gnu/liblz4.so.1
+/lib/x86_64-linux-gnu/libgcc_s.so.1
+/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+/usr/lib/x86_64-linux-gnu/libapt-pkg.so.5.0
+/usr/lib/x86_64-linux-gnu/libapt-private.so.0.0
+/usr/lib/x86_64-linux-gnu/liblz4.so.1
+/lib/x86_64-linux-gnu/libgcc_s.so.1
+/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+000000000008dbc0 <__cxa_guard_abort@@CXXABI_1.3>:
+00000000000b6960 <_ZNSt28__atomic_futex_unsigned_base19_M_futex_wait_untilEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE@@GLIBCXX_3.4.21>:
+00000000000b6a60 <_ZNSt28__atomic_futex_unsigned_base19_M_futex_notify_allEPj@@GLIBCXX_3.4.21>:
+/usr/lib/x86_64-linux-gnu/libapt-pkg.so.5.0
+/usr/lib/x86_64-linux-gnu/libapt-private.so.0.0

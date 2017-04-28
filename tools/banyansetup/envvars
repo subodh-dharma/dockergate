@@ -1,0 +1,7 @@
+ 
+export GOPATH=$(pwd)
+export COLLECTOR_DIR=$GOPATH/src/github.com/banyanops/collector
+export COLLECTOR_HOST_DIR=$(pwd)/output
+export BANYAN_HOST_DIR=$(pwd)/output
+export DOCKER_USER=user
+export DOCKER_PASSWORD=pwd

@@ -30,7 +30,7 @@ def worker(cmd):
   #cmd2 = "./cleanup.sh " + cmd.split(' ')[1]
   #os.system(cmd2)
 
-worker("sudo ./tools/banyansetup/collector_script.sh "+docker_img_name)
+worker("./tools/banyansetup/collector_script.sh "+docker_img_name)
 print 'Process killed..' 
 
 
@@ -40,17 +40,17 @@ print 'Process killed..'
 output_dir =  './test_env/' + docker_img_name + '/output/hostcollector/banyanout'
 
 
-ldd_file_path = str(output_dir) +"/print_file"
+'''ldd_file_path = str(output_dir) +"/print_file"
 for file in os.listdir(ldd_file_path):
     if file.endswith(".txt"):
-        ldd_file_path = ldd_file_path +'/'+file
+        ldd_file_path = ldd_file_path +'/'+file'''
 
 nm_file_path = output_dir+"/run_nm"
 for file in os.listdir(nm_file_path):
     if file.endswith(".txt"):
         nm_file_path = nm_file_path +'/'+file
 
-print ldd_file_path, nm_file_path
+print nm_file_path
 
 
 # process the ldd output and analyze libraries
@@ -58,6 +58,7 @@ print ldd_file_path, nm_file_path
 # else read objdump of .so and generate syscall mapping
 
 ##   YET TO CONVERT
+mapsyscalls.copy_new_mapping(nm_file_path)
 
 
 # process the nm output to identify library calls
@@ -67,6 +68,7 @@ print 'Converting nm output to json policy:'
 mapsyscalls.map_nm_2_sys(nm_file_path)
 print 'Policy Generated!'
 
+os.rename('policy_generated.json','data/policy/' + docker_img_name.replace('/','_') + '.json')
 
 ## calling clean up
 ## delete image after scanning, delete all test_env data

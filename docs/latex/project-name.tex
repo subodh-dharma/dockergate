@@ -2,10 +2,19 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{comment}
 \usepackage{graphicx}
-\usepackage{url}
+%\usepackage{url}
+\usepackage[hyphens]{url}
 \usepackage[pdftex,colorlinks=true,citecolor=black,filecolor=black,%
             linkcolor=black,urlcolor=black]{hyperref}
 \usepackage{times}
+% adding to disable hyphenation for entire document
+\usepackage[none]{hyphenat}
+% adding to indent first paragraph in every subsections
+\usepackage{indentfirst}
+% adding for table formatting
+\usepackage{tabularx}
+% wrap the references in a column
+\usepackage{breakcites}
 %\usepackage{listings}
 %\usepackage{fancyvrb}
 %\usepackage{amsmath}
@@ -17,9 +26,10 @@
 %    basicstyle=\ttfamily}
 %\let\code\lstinline
 
-\title{Title of Paper}
-\author{Student Name \\
-\url{student.name@ncsu.edu}}
+\title{DockerGate: Automated Seccomp Policy Generation for Docker Images}
+\author{Subodh Dharmadhikari \\ \url{ssdharma@ncsu.edu} \and 
+        Mohit Goyal \\ \url{mgoyal@ncsu.edu}\\
+}
 \date{}
 
 \begin{document}
@@ -28,12 +38,15 @@
 
 \input{abstract}
 \input{intro}
+\input{background}
 \input{overview}
 \input{design}
+%\input{experiment}
 \input{eval}
 \input{discussion}
 \input{relwork}
 \input{conc}
+
 
 \bibliographystyle{abbrv}
 \bibliography{main}

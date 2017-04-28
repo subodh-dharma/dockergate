@@ -97,10 +97,12 @@ if os.path.exists('output_mapping'):
 		final_list[d] = func.parse(dict_obj[d],d)
 	
 	output_file.close()
-output_file = open('output_mapping','w')
+output_file = open('tmp_json_file','w')
 exception_file = open('exception','a')
 
 count_fun = 0
+
+this_lib_list = {}
 
 for i in  range(0,len(l)-1):
 	line = l[i]	
@@ -112,7 +114,7 @@ for i in  range(0,len(l)-1):
 			try:
 				fun = process_function(l,l1,l2,c,final_list, exception_file)
 				if fun != None:
-					final_list[fun.name] = fun
+					this_lib_list[fun.name] = fun
 			except Exception,e:
 				print 'EXCEPTION:'+l[l1]
 				exception_file.write(l[l1])
@@ -124,19 +126,28 @@ for i in  range(0,len(l)-1):
 print '*********************************************************************************************************'
 for i in range(0,1):
 	count = 0
-	for fun in final_list.keys():
-		for callq in final_list[fun].callq:
+	for fun in this_lib_list.keys():
+		for callq in this_lib_list[fun].callq:
+			if callq in this_lib_list.keys():
+				count = count + 1
+				for s in this_lib_list[callq].syscalls:
+					this_lib_list[fun].syscalls.add(s)
+		for callq in this_lib_list[fun].callq:
 			if callq in final_list.keys():
 				count = count + 1
 				for s in final_list[callq].syscalls:
-					final_list[fun].syscalls.add(s)
+					this_lib_list[fun].syscalls.add(s)
 	print count
 
 json_write = {}
 for f in final_list.keys():
 	json_write[f] = final_list[f].jsonify()
+for f in this_lib_list.keys():
+	json_write[f] = this_lib_list[f].jsonify()
 
-print len(final_list.keys())
+print len(json_write.keys())
 output_file.write(json.dumps(json_write))
 output_file.close()
+
+os.rename('tmp_json_file','output_mapping')
 exception_file.close()

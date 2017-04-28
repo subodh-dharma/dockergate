@@ -1,4 +1,85 @@
 \section{Evaluation}
 \label{sec:eval}
 
-Evaluation (don't forget to interpret your data)
+\subsection{Characterizing Data Set}
+
+Docker Hub currently host around 400,000 images. To perform experiments with DockerGate, it was required to limit our dataset to test and evaluate. Docker Hub hosts two types of images viz. Official images and Community Images. Official images are maintained by official owners of applications and community images are maintained by users and community members which contain some customized applications developed on top of official images.
+
+To characterize the images we used the Dockerfiles of each image. Dockerfile for Official Images were obtained from the links consolidated in Docker’s Official Library repository[9]. While Dockerfile(s) for community images were obtained using a web scraper. We used ScraPy~\cite{scrapy}, a web scraping framework, to scrape Docker Hub for image names. Using random English dictionary words as search keywords, we were able to get about 96,000 Docker image names. Because of limitations in resources, we randomly sampled 200 Docker image names from those 96,000 names. We conduct our further experiments on this sample of 200 Docker images.
+
+We analyzed these Dockerfiles to determine the nature of docker images. We first identified the base image of the docker image, which can be obtained from Dockerfile’s first line starting with keyword FROM. We analyzed the official images and community images separately. The result of this analysis can be found in Table 1.
+
+As can be observed from Table \ref{topbaseimages}, out of total 437 Dockerfiles, 118 images have openjdk base images. Further we deep dived to analyse the original base image of openjdk. It was found that all these images were based on either ubuntu, alpine or debian images as their most lowest level base image distribute almost equally.
+The majority of the images were based on ubuntu and debian. A complete list of the distribution of images can found in the Appendix.
+
+Further we analyzed Dockerfiles of the community images obtained using web scraper. We randomly selected 400 images from the set and checked for the base image. It was observed that about 250 images had base image of ubuntu and debian. While  about 100 images are based on alpine and rest are based on images of fedora, centos, scratch.
+
+Since the number of ubuntu and debian images was more popular in usage for developing the custom docker images, we have considered only ubuntu or debian based images for the analysis and testing of DockerGate.
+
+\begin{table}
+\centering
+\label{topbaseimages}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Base Image} & \textbf{Number of docker images} \\ \hline
+openjdk & \multicolumn{1}{c|}{118} \\ \hline
+buildpack-deps & \multicolumn{1}{c|}{79} \\ \hline
+debian & \multicolumn{1}{c|}{78} \\ \hline
+alpine & \multicolumn{1}{c|}{73} \\ \hline
+scratch & \multicolumn{1}{c|}{49} \\ \hline
+php & \multicolumn{1}{c|}{42} \\ \hline
+python & \multicolumn{1}{c|}{15} \\ \hline
+microsoft/windowsservercore & \multicolumn{1}{c|}{12} \\ \hline
+microsoft/nanoserver & \multicolumn{1}{c|}{9} \\ \hline
+ubuntu & \multicolumn{1}{c|}{9} \\ \hline
+\end{tabular}
+}
+\caption{Top 10 base images used in building a Docker Image}
+\end{table}
+
+\subsection{DockerGate Policy Evaluation}
+
+To evaluate the DockerGate we have considered only docker images with ubuntu or debian as the base images. We use the DockerGate framework by providing the name of a docker image as input to DockerGate, further it performs the analysis and updates the global database of system calls if required and generates a seccomp  policy. 
+
+After issuing a docker run command, the launched container can be in three possible states. 
+\begin{itemize}
+\item \textbf{Up} - the container is up and live, applications within the container are being executed as expected.
+\item \textbf{Created} - in this state it creates a writeable container layer but doesn’t start the container execution.
+\item \textbf{Exit} - the container is destroyed and all the resources are freed. Depending on the exit code, it determines if container was gracefully destroyed or with some error in the application. Exit code of 0 indicates a graceful exit, while any other code indicates an erroneous exit from container
+\end{itemize}
+
+We determine the generated seccomp policy for docker image to be successful by loading the generated policy and attempt to create and execute a simple container. If the status of the container is Up or it exits with exit code 0, we assume that container was created successfully and executed the application within the container or the command line provided as the input to it. If the container resulted to land in any other states that is considered as a failure.
+
+From a set of Ubuntu based docker images, we performed ran DockerGate on randomly selected 20 community images. The images contained applications ranging from simple binary files to complete Databases and Web Servers.
+
+The policy generated contained at an average of 230 system calls in the seccomp policy. With an exception in an image “burl/docker-node-base” generated a seccomp policy of 16 system calls, which resulted in a failed state (Created).
+A summary of container states and success of the seccomp policy to spawn a successful container can be given as follows:
+
+\begin{table}
+\centering
+\label{seccompresults}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Container Status} & \textbf{Number of docker images} \\ \hline
+Exit Status 0 & \multicolumn{1}{c|}{7} \\ \hline
+Up (live container) & \multicolumn{1}{c|}{2} \\ \hline
+Created & \multicolumn{1}{c|}{2} \\ \hline
+Exit Status != 0 & \multicolumn{1}{c|}{9} \\ \hline
+\textbf{Total} & \multicolumn{1}{c|}{\textbf{20}} \\ \hline
+\end{tabular}
+}
+\caption{Container status after loading them with DockerGate generated seccomp policy}
+\end{table}
+
+
+From the Table \ref{seccompresults} we can see that 9 out of 20 containers exited in successful state. While 2 of them remained in Created state. And the rest of the 9 containers failed for various reasons.
+
+To determine which system calls were used during the execution of the container we used a tool called SystemTap~\cite{systemtap}. We developed a custom SystemTap script which would print the system calls being called during the execution of the container. The reason why we could trust System Tap in this case, as compared to strace is that, when a system tap script is executed, a custom Linux kernel module is created and inserted into the kernel. Based on the probe events defined in the script, when any such event is triggered corresponding action is executed in the kernel space. This allowed us to identify exactly which system calls had been used by any command, which in this case, was the Docker container. 
+
+We spawned the Docker container for same 20 images used above and obtained the system calls called during the process. In the 20 images above, we found that an average of 118 system calls are actually required for spawning and initiating the startup process within the container.
+
+Thus from the above experiments conducted, we can derive a lower bound on the number of system calls a docker image with base Ubuntu can have. With an average of minimum 118 system calls a basic Ubuntu image can be  successfully executed, while our DockerGate framework generates seccomp policy with average number of system calls equal to 230. 
+
+The current default seccomp policy includes about over 300 system calls to be allowed to be executed, which exposes a large attack surface for the host kernel. Based on the result of experiments conducted, the default policy can be reduced to 230 system calls identified above and reduce the attack surface of the host kernel. 

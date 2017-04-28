@@ -1,5 +1,5 @@
 {
-	"defaultAction": "SCMP_ACT_ERRNO",
+	"defaultAction": "SCMP_ACT_KILL",
 	"syscalls":[ 
 	{	"names":[
 			"access",
