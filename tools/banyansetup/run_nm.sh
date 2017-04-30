@@ -1,4 +1,12 @@
 #! /bin/bash
+
+source /etc/os-release
+if [ $ID != "ubuntu" ] && [ $ID != "debian" ];
+then
+	echo "NA"
+	exit
+fi
+
 apt-get -q update
 apt-get install -y -q file
 apt-get install -y -q binutils
@@ -11,7 +19,7 @@ do
     VAR=`file "$file"`
     #echo $VAR > /dev/null
     #case "$VAR" in *ELF*executable*):
-    case "$VAR" in *ELF*):
+    case "$VAR" in *ELF*executable*):
         echo "ELF NM BEGIN FOR: $file"
 		cd syscall_library
 		python check_index.py "$file" 2>&1
