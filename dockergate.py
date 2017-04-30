@@ -52,6 +52,11 @@ for file in os.listdir(nm_file_path):
 
 print nm_file_path
 
+f = open(nm_file_path,'r')
+line = f.readline()
+if line == 'NA':
+ print 'No analysis for ' + sys.argv[1]
+ exit()
 
 # process the ldd output and analyze libraries
 # if existing - no processing skip to next
@@ -73,6 +78,6 @@ os.rename('policy_generated.json','data/policy/' + docker_img_name.replace('/','
 ## calling clean up
 ## delete image after scanning, delete all test_env data
 
-#cleanup = subprocess.Popen(["sudo ./tools/banyansetup/cleanup.sh "+docker_img_name],shell=True, stdin=None, stdout=None,stderr=None)
+cleanup = subprocess.Popen(["sudo ./tools/banyansetup/cleanup.sh "+docker_img_name],shell=True, stdin=None, stdout=None,stderr=None)
 print '*****'
 

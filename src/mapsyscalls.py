@@ -74,6 +74,7 @@ def map_nm_2_sys(filename):
  syscalls.add('setgroups')
  syscalls.add('setuid')
  syscalls.add('stat')
+ syscalls.add('rt_sigreturn')
  for value in output_list:
   try:
    for sys_num in (libc[value]["syscalls"]):

@@ -27,5 +27,5 @@ cp $(pwd)/src/data/output_mapping $COLLECTOR_DIR/data/bin/syscall_library
 cp $(pwd)/src/data/index $COLLECTOR_DIR/data/bin/syscall_library
 
 
-#$GOPATH/bin/collector registry-1.docker.io  $1 --maximages 1
-$GOPATH/bin/collector local.host  $1 --maximages 1
+$GOPATH/bin/collector registry-1.docker.io  $1 --maximages 1
+#$GOPATH/bin/collector local.host  $1 --maximages 1
