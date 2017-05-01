@@ -7,7 +7,7 @@ import mapsyscalls
 
 
 docker_img_name = sys.argv[1]
-
+index = open('image_index','a')
 # call banyanops script
 def collector_execute(cmd):
  "Execute Collector for image"
@@ -54,8 +54,12 @@ print nm_file_path
 
 f = open(nm_file_path,'r')
 line = f.readline()
-if line == 'NA':
+if 'NA' in line:
+ index.close()
  print 'No analysis for ' + sys.argv[1]
+ cleanup = subprocess.Popen(["sudo ./tools/banyansetup/cleanup.sh "+docker_img_name],shell=True, stdin=None, stdout=subprocess.PIPE,stderr=None)
+ output = cleanup.stdout.readlines()
+ print '*****'
  exit()
 
 # process the ldd output and analyze libraries
@@ -72,12 +76,12 @@ mapsyscalls.copy_new_mapping(nm_file_path)
 print 'Converting nm output to json policy:'
 mapsyscalls.map_nm_2_sys(nm_file_path)
 print 'Policy Generated!'
+index.write(sys.argv[1] + '\n')
+index.close()
 
 os.rename('policy_generated.json','data/policy/' + docker_img_name.replace('/','_') + '.json')
 
 ## calling clean up
 ## delete image after scanning, delete all test_env data
 
-cleanup = subprocess.Popen(["sudo ./tools/banyansetup/cleanup.sh "+docker_img_name],shell=True, stdin=None, stdout=None,stderr=None)
-print '*****'
 

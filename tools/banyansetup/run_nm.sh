@@ -12,7 +12,7 @@ apt-get install -y -q file
 apt-get install -y -q binutils
 
 export SYSCALL="/banyancollector/bin"
-ln -s $SYSCALL/python-static /bin/python 2>&1
+ln -s $SYSCALL/python-static /bin/python3 2>&1
 cp -r $SYSCALL/syscall_library .
 find / -print | while IFS='"'  read -r file
 do 
@@ -22,7 +22,7 @@ do
     case "$VAR" in *ELF*executable*):
         echo "ELF NM BEGIN FOR: $file"
 		cd syscall_library
-		python check_index.py "$file" 2>&1
+		python3 check_index.py "$file" 2>&1
         nm -D "$file"
 		cd -
         echo "ELF NM END FOR: $file"; 
