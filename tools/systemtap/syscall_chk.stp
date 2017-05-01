@@ -3,7 +3,6 @@
 global syscall_list
 
 probe begin {
- printf("starting syscall_chk.stp...\n")
  init_lists()
 }
 
@@ -11,7 +10,6 @@ probe end {
  foreach(s+ in syscall_list){
   printf("%5s, %d\n", s, syscall_list[s])
  }
- printf("Completed!\n")
 }
 
 
