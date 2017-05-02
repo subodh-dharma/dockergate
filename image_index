@@ -1,7 +1,4 @@
 subodhdharma/dockertest
-subodhdharma/dockertest
-subodhdharma/dockertest
-subodhdharma/dockertest
 elbaschid/headless-firefox
 sublimino/mnemosyne
 jangorecki/drd-pkg
@@ -25,7 +22,6 @@ perspicaio/testapp
 programlabbet/mini-ruby
 sirile/scala-boot-test
 gesellix/morgue
-subodhdharma/dockertest
 devries/bottle
 ness2u/cockpit
 thiagobraga/docker-composer
