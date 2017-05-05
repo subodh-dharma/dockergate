@@ -1,4 +1,5 @@
 \documentclass[10pt,twocolumn,pdftex]{article}
+%\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage[margin=1in]{geometry}
 \usepackage{comment}
 \usepackage{graphicx}
@@ -15,6 +16,8 @@
 \usepackage{tabularx}
 % wrap the references in a column
 \usepackage{breakcites}
+\usepackage{longtable}
+\usepackage{tabu}
 %\usepackage{listings}
 %\usepackage{fancyvrb}
 %\usepackage{amsmath}
@@ -41,7 +44,6 @@
 \input{background}
 \input{overview}
 \input{design}
-%\input{experiment}
 \input{eval}
 \input{discussion}
 \input{relwork}
@@ -50,6 +52,9 @@
 
 \bibliographystyle{abbrv}
 \bibliography{main}
+\clearpage
+\pagebreak
+\input{appendix}
 
 \end{document}
 
