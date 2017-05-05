@@ -1,0 +1,26 @@
+{
+        "defaultAction": "SCMP_ACT_ERRNO",
+        "syscalls":[
+        {       "names":[
+                 "capget",
+		 "capset",
+		 "chdir",
+		 "fchown",
+		 "futex",
+		 "getdents64",
+		 "getpid",
+		 "getppid",
+		 "lstat",
+		 "openat",
+		 "prctl",
+		 "setgid",
+		 "setgroups",
+		 "setuid",
+		 "stat",
+		 "accept4",
+		 "socketpair"
+		],
+                "action": "SCMP_ACT_ALLOW"
+        }]
+}
+
