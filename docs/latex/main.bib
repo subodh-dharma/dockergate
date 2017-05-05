@@ -1,17 +1,20 @@
 @MISC{docker, 
  title={Docker}, 
+ author={Docker Inc.},
  howpublished={\url{https://www.docker.com}}, 
  journal={Docker}
 }
 
 @MISC{openvz, 
- title={OpenVZ}, 
+ title={OpenVZ},
+ author={OpenVZ},
  howpublished={\url{https://openvz.org}}, 
  journal={OpenVZ}
 }
 
 @MISC{dockerhub, 
- title={Docker Hub}, 
+ title={Docker Hub},
+ author={Docker Inc.},
  howpublished={\url{https://hub.docker.com}}, 
  journal={Docker}
 }
@@ -89,6 +92,7 @@
 
 @MISC{cvelist,
   title = {Docker CVE List},
+  author={CVE},
   year = {2014},
   howpublished = {\url{https://www.cvedetails.com/vulnerability-list/vendor_id-13534/product_id-28125/Docker-Docker.html}},
   urldate={26 April 2017}
@@ -122,12 +126,11 @@
   publisher={Belltown Media}
 }
 
-@MISC {hardenlinuxcontainer,
-    author       = "Aaron Grattafiori",
-    title        = "Understanding and Hardening Linux Containers",
-    howpublished = {\url{https://www.nccgroup.trust/globalassets/our-research/us/whitepapers/2016/april/ncc_group_understanding_hardening_linux_containers-10pdf/}},
-    publisher = {NCC Group Whitepaper},
-    journal = {Linux Journal}
+@article{hardenlinuxcontainer,
+  title={Understanding and hardening Linux containers},
+  author={Grattafiori, Aaron},
+  journal={Whitepaper, NCC Group},
+  year={2016}
 }
 
 @inproceedings{containerperformance,
@@ -173,6 +176,7 @@ Consolidation },
 
 @MISC{dockeropensource,
 	title = {Docker Open Source community},
+	author={Docker},
     howpublished = {\url{https://github.com/docker/docker.github.io}}
 }
 @MISC{kernelsyscallfuzzer,
@@ -220,7 +224,7 @@ Consolidation },
 }
 @MISC {dockerimages,
     title        = {Docker Images and Containers},
-    howpublished = {\url{https://linux.die.net/man/1/objdump}}
+    howpublished = {\url{https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/}}
 }
 @MISC {seccomplinux,
     title        = {Linux Kernel Feature - seccomp},
@@ -288,16 +292,99 @@ Consolidation },
     title        = "PLT and GOT - the key to code sharing and dynamic libraries",
     howpublished = {\url{https://www.technovelty.org/linux/plt-and-got-the-key-to-code-sharing-and-dynamic-libraries.html}},
 }
+@MISC {monkeyrunner,
+    title        = "monkeyrunner",
+    howpublished = {\url{https://developer.android.com/studio/test/monkeyrunner/index.html}},
+}
 
+@inproceedings{raj2016,
+  title={Enhancing security of Docker using Linux hardening techniques},
+  author={MP, Amith Raj and Kumar, Ashok and Pai, Sahithya J and Gopal, Ashika},
+  booktitle={Applied and Theoretical Computing and Communication Technology (iCATccT), 2016 2nd International Conference on},
+  pages={94--99},
+  year={2016},
+  organization={IEEE}
+}
 
+@inproceedings{afonso2016going,
+  title={Going native: Using a large-scale analysis of android apps to create a practical native-code sandboxing policy},
+  author={Afonso, Vitor and Bianchi, Antonio and Fratantonio, Yanick and Doup{\'e}, Adam and Polino, Mario and de Geus, Paulo and Kruegel, Christopher and Vigna, Giovanni},
+  booktitle={Proceedings of the Annual Symposium on Network and Distributed System Security (NDSS)},
+  year={2016}
+}
 
+@inproceedings{sniffen2006guided,
+  title={Guided policy generation for application authors},
+  author={Sniffen, Brian T and Harris, David R and Ramsdell, John D},
+  booktitle={SELinux Symposium},
+  year={2006}
+}
+@article{bui,
+  title={Analysis of docker security},
+  author={Bui, Thanh},
+  journal={arXiv preprint arXiv:1501.02967},
+  year={2015}
+}
+@techreport{combecontainers,
+  title={Containers: Vulnerability Analysis},
+  author={Combe, Theo and Martin, Antony and Di Pietro, Roberto},
+  institution={tech. report, Nokia Bell Labs}
+}
+@ARTICLE {dockerinc.2016,
+    author  = "Docker Inc.",
+    title   = "Introduction to Container Security",
+    journal = "www.docker.com",
+    year    = "2016"
+}
+@inproceedings{harada2003access,
+  title={Access policy generation system based on process execution history},
+  author={Harada, Toshiharu and Horie, Takashi and Tanaka, Kazuo},
+  booktitle={Network Security Forum},
+  year={2003}
+}
+@article{hung2016guidock,
+  title={GUIdock: Using Docker containers with a common graphics user interface to address the reproducibility of research},
+  author={Hung, Ling-Hong and Kristiyanto, Daniel and Lee, Sung Bong and Yeung, Ka Yee},
+  journal={PloS one},
+  volume={11},
+  number={4},
+  pages={e0152686},
+  year={2016},
+  publisher={Public Library of Science}
+}
 
+@inproceedings{rajgopalan,
+  title={Authenticated system calls},
+  author={Rajagopalan, Mohan and Hiltunen, Matti and Jim, Trevor and Schlichting, Richard},
+  booktitle={Dependable Systems and Networks, 2005. DSN 2005. Proceedings. International Conference on},
+  pages={358--367},
+  year={2005},
+  organization={IEEE}
+}
 
+@inproceedings{provos2003improving,
+  title={Improving Host Security with System Call Policies.},
+  author={Provos, Niels},
+  booktitle={Usenix Security},
+  volume={3},
+  pages={19},
+  year={2003}
+}
 
+@article{combe,
+  title={To Docker or Not to Docker: A Security Perspective},
+  author={Combe, Theo and Martin, Antony and Di Pietro, Roberto},
+  journal={IEEE Cloud Computing},
+  volume={3},
+  number={5},
+  pages={54--62},
+  year={2016},
+  publisher={IEEE}
+}
 
-
-
-
-
-
-
+@article{rastogi,
+  title={Towards Least Privilege Containers with Cimplifier},
+  author={Rastogi, Vaibhav and Davidson, Drew and De Carli, Lorenzo and Jha, Somesh and McDaniel, Patrick},
+  journal={arXiv preprint arXiv:1602.08410},
+  year={2016}
+}
