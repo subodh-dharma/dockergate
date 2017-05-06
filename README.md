@@ -34,7 +34,7 @@ This will invoke the driver program of the DockerGate framework and generate the
 
 # Quick Links:
 
-Link to [IEEE format Paper](docs/latex/project-name.pdf)
+Link to [IEEE format Paper](dockergate/docs/latex/dockergate_automated_seccomp.pdf)
 
 Official Docker Hub Images list : [Github Link](https://github.com/docker-library/official-images)
 
