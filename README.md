@@ -34,7 +34,7 @@ This will invoke the driver program of the DockerGate framework and generate the
 
 # Quick Links:
 
-Link to [Research paper](dockergate/docs/dockergate_automated_seccomp(3).pdf)
+Link to [Research paper](https://github.com/subodh-dharma/dockergate/blob/master/docs/latex/dockergate_automated_seccomp.pdf)
 
 Official Docker Hub Images list : [Github Link](https://github.com/docker-library/official-images)
 
