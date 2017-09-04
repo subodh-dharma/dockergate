@@ -8,7 +8,7 @@ export BANYAN_HOST_DIR=$(pwd)/output
 cd $GOPATH
 
 sudo apt-get install -y golang
-go get -u github.com/banyanops/collector/...
+go get -u github.com/DockerGate/collector/...
 
 cp run_nm.sh $COLLECTOR_DIR/data/userscripts
 #cp print_file.sh $COLLECTOR_DIR/data/userscripts
